@@ -2,12 +2,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class GameFrame {
     JFrame frame;
     JButton start_game, settings, highscore, backtoHome;
     JLabel gameName;
     JPanel startScreen, gamePage, settingsPage, infoPage;
+    final int width = 55, height = 35;
+    int posx = 300 - (width/2);
+    int posy = 500 - (height/2);
 
     public GameFrame() {
         frame = new JFrame("Game 1705063");
@@ -157,9 +162,53 @@ public class GameFrame {
         settingsTop.add(backtoHome, BorderLayout.LINE_START);
         settingsPage.add(settingsTop, BorderLayout.NORTH);
 
-
         settingsPage.setOpaque(true);
 
+        /**
+         * This is a panel for the game
+         * At the moment the game looks a bit like frogger
+         * So maybe the game might be frogger?? but with a satanic aspect
+         * The satanic aspect will be added later (hopefully)
+         */
+        gamePage = new JPanel() {
+            @Override
+            public void paintComponent(Graphics g) { // we want to separate the paintComponent too
+                super.paintComponent(g);
+
+                // hexagons - find a way to make the code neater
+                // we want to create a few rows to hexagons
+
+                // ribbit
+                g.setColor(new Color(52,169,95));
+                g.fillRect(posx, posy, width, height);
+            }
+        };
+        frame.addKeyListener(new frogListener(this));
+        frame.setFocusable(true);
+        gamePage.setBackground(new Color(220,221,255));
+
+        JPanel gamepageTop = new JPanel();
+        gamepageTop.setLayout(new BorderLayout(20,20));
+        gamepageTop.setBackground(new Color(255,208,0));
+        backtoHome = new JButton("quit");
+        backtoHome.setForeground(Color.black);
+        backtoHome.setBackground(Color.white);
+        backtoHome.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.remove(settingsPage);
+                frame.remove(gamePage);
+                frame.add(startScreen);
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
+        gamepageTop.add(backtoHome, BorderLayout.CENTER);
+        gamePage.add(gamepageTop, BorderLayout.PAGE_START);
+
+        gamePage.setOpaque(true);
+
+        // basic frame stuff here
         frame.setPreferredSize(new Dimension(600,600));
         frame.setResizable(false);
         frame.pack();
@@ -170,4 +219,45 @@ public class GameFrame {
     public static void main(String[] args) {
         new GameFrame();
     }
+}
+
+/**
+ * This frogListener class while be moved to a new .java file in the future
+ *
+ */
+class frogListener implements KeyListener {
+    GameFrame theFrame;
+
+    public frogListener(GameFrame f) {
+        this.theFrame = f;
+    }
+
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            if (theFrame.posx > 50) {
+                theFrame.posx -= 5;
+            }
+            theFrame.gamePage.repaint();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            if (theFrame.posx < 500) {
+                theFrame.posx += 5;
+            }
+            theFrame.gamePage.repaint();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
+            if (theFrame.posy > 80) {
+                theFrame.posy -= 7;
+            }
+            theFrame.gamePage.repaint();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+            if (theFrame.posy < 481) {
+                theFrame.posy += 7;
+            }
+            theFrame.gamePage.repaint();
+        }
+    }
+    public void keyTyped(KeyEvent e) { }
+    public void keyReleased(KeyEvent e) { }
 }
