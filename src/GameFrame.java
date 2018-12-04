@@ -79,6 +79,54 @@ public class GameFrame {
         startScreen.setOpaque(true);
         frame.add(startScreen);
 
+        /**
+         * This is a panel for the game instructions.
+         * The user will be directed here when they click on 'start game' at the start screen
+         * This will be shown before the actual game starts, so that the user knows how to play
+         */
+        infoPage = new JPanel();
+        infoPage.setBackground(Color.pink);
+        infoPage.setLayout(new BoxLayout(infoPage, BoxLayout.PAGE_AXIS));
+        JPanel instructions = new JPanel(new GridLayout(3,1));
+        instructions.setBackground(Color.yellow);
+
+        JLabel infoTitle = new JLabel("Instructions", SwingConstants.CENTER);
+        infoTitle.setFont(new Font("Arial", Font.BOLD, 30));
+        start_game = new JButton("start");
+        start_game.setForeground(Color.black);
+        start_game.setBackground(Color.white);
+        start_game.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.remove(startScreen);
+                frame.remove(settingsPage);
+                frame.remove(infoPage);
+                frame.add(gamePage);
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
+        String infoText = "<html>" +
+                "1. Use the left and right arrow keys to move left and right" +
+                "<br/>" +
+                "2. This is basically a game of frogger, get from one side to the other safely" +
+                "<br/>" +
+                "3. Good luck!" +
+                "<br/>" +
+                "<br/>" +
+                "</html>";
+        JLabel info = new JLabel(infoText,SwingConstants.CENTER);
+        info.setFont(new Font("Arial", Font.PLAIN, 17));
+
+        instructions.add(infoTitle);
+        instructions.add(info);
+        instructions.add(start_game);
+        infoPage.add(Box.createRigidArea(new Dimension(0,100)));
+        infoPage.add(instructions);
+        infoPage.add(Box.createRigidArea(new Dimension(0,100)));
+
+        infoPage.setOpaque(true);
+
         frame.setPreferredSize(new Dimension(600,600));
         frame.setResizable(false);
         frame.pack();
