@@ -15,7 +15,7 @@ public class GameFrame {
     int posy = 500 - (height/2);
 
     public GameFrame() {
-        frame = new JFrame("Game 1705063");
+        frame = new JFrame("Frogger 1705063");
         frame.getContentPane().setBackground(new Color(255,233,137));
 
         /**
