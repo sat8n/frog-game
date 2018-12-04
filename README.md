@@ -1,6 +1,14 @@
 # CE203-Assignment2
 **Deadline:** 11:59:59, Wednesday 12th December 2018
 
+## To-do list
+- [ ] Make the code for painting hexagons neater
+- [ ] Separate the frogListener to a new class file
+- [ ] Separate the paintComponent into it's own class (see #2 below)
+- [ ] Create a JPanel for the highscore page
+- [ ] Try and implement mouse functionality somehow (maybe turn Frogger into Zuma?? this game is a mess)
+- [ ] it's wednesday my dudes
+
 ## Your Task
 Applying what you've learned so far, you are asked to write your own 2-dimensional shape-based game. Examples of this would include Pong, Snack, Space Invaders, or other simple 2D games of your creation.
 
