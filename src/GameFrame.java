@@ -127,6 +127,39 @@ public class GameFrame {
 
         infoPage.setOpaque(true);
 
+        /**
+         * This is a panel for the settings page.
+         * Not really sure what to include in the settings yet
+         * Maybe the ability to change the frog's colour ?
+         */
+        settingsPage = new JPanel(new BorderLayout(10,10));
+        settingsPage.setBackground(Color.blue);
+
+        JPanel settingsTop = new JPanel();
+        settingsTop.setLayout(new BorderLayout(20,20));
+        settingsTop.setBackground(new Color(255,233,137));
+        JLabel settingsTitle = new JLabel("Settings", SwingConstants.CENTER);
+        settingsTitle.setFont(new Font("Arial", Font.BOLD, 30));
+        settingsTop.add(settingsTitle, BorderLayout.PAGE_END);
+        backtoHome = new JButton("back");
+        backtoHome.setForeground(Color.black);
+        backtoHome.setBackground(Color.white);
+        backtoHome.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.remove(settingsPage);
+                frame.remove(gamePage);
+                frame.add(startScreen);
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
+        settingsTop.add(backtoHome, BorderLayout.LINE_START);
+        settingsPage.add(settingsTop, BorderLayout.NORTH);
+
+
+        settingsPage.setOpaque(true);
+
         frame.setPreferredSize(new Dimension(600,600));
         frame.setResizable(false);
         frame.pack();
