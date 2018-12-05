@@ -90,10 +90,10 @@ public class GameFrame {
          * This will be shown before the actual game starts, so that the user knows how to play
          */
         infoPage = new JPanel();
-        infoPage.setBackground(Color.pink);
+        infoPage.setBackground(new Color(255,233,137));
         infoPage.setLayout(new BoxLayout(infoPage, BoxLayout.PAGE_AXIS));
         JPanel instructions = new JPanel(new GridLayout(3,1));
-        instructions.setBackground(Color.yellow);
+        instructions.setBackground(new Color(255,233,137));
 
         JLabel infoTitle = new JLabel("Instructions", SwingConstants.CENTER);
         infoTitle.setFont(new Font("Arial", Font.BOLD, 30));
@@ -177,6 +177,36 @@ public class GameFrame {
 
                 // hexagons - find a way to make the code neater
                 // we want to create a few rows to hexagons
+                g.setColor(new Color(255,165,0));
+                int[] startX = {65,90,105,90,65,50};
+                int[] startY = {101,101,125,149,149,125};
+                int[] x = {65,90,105,90,65,50};
+                int[] y = {101,101,125,149,149,125};
+                g.drawPolygon(x,y,6);
+
+                int count = 0;
+                while (count < 5) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                count = 0;
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] = startY[i];
+                    y[i] += 20;
+                }
+
+                while (count < 5) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
 
                 // ribbit
                 g.setColor(new Color(52,169,95));
