@@ -222,7 +222,7 @@ public class GameFrame {
 }
 
 /**
- * This frogListener class while be moved to a new .java file in the future
+ * This frogListener class will be moved to a new .java file in the future
  *
  */
 class frogListener implements KeyListener {
