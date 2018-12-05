@@ -9,7 +9,7 @@ public class GameFrame {
     JFrame frame;
     JButton start_game, settings, highscore, backtoHome;
     JLabel gameName;
-    JPanel startScreen, gamePage, settingsPage, infoPage;
+    JPanel startScreen, gamePage, settingsPage, infoPage, records;
     final int width = 55, height = 35;
     int posx = 300 - (width/2);
     int posy = 500 - (height/2);
@@ -43,6 +43,7 @@ public class GameFrame {
                 // https://stackoverflow.com/questions/13110094/how-do-i-hide-the-current-jpanel-and-show-a-new-one-with-a-button-in-java
                 frame.remove(startScreen);
                 frame.remove(settingsPage);
+                frame.remove(records);
                 frame.remove(gamePage);
                 frame.add(infoPage);
                 frame.revalidate();
@@ -62,6 +63,7 @@ public class GameFrame {
                 frame.remove(startScreen);
                 frame.remove(gamePage);
                 frame.remove(infoPage);
+                frame.remove(records);
                 frame.add(settingsPage);
                 frame.revalidate();
                 frame.repaint();
@@ -75,7 +77,13 @@ public class GameFrame {
         highscore.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                frame.remove(startScreen);
+                frame.remove(gamePage);
+                frame.remove(infoPage);
+                frame.remove(settingsPage);
+                frame.add(records);
+                frame.revalidate();
+                frame.repaint();
             }
         });
         buttonsStart.add(highscore);
@@ -106,6 +114,7 @@ public class GameFrame {
                 frame.remove(startScreen);
                 frame.remove(settingsPage);
                 frame.remove(infoPage);
+                frame.remove(records);
                 frame.add(gamePage);
                 frame.revalidate();
                 frame.repaint();
@@ -154,6 +163,8 @@ public class GameFrame {
             public void actionPerformed(ActionEvent e) {
                 frame.remove(settingsPage);
                 frame.remove(gamePage);
+                frame.remove(records);
+                frame.remove(infoPage);
                 frame.add(startScreen);
                 frame.revalidate();
                 frame.repaint();
@@ -418,6 +429,8 @@ public class GameFrame {
             public void actionPerformed(ActionEvent e) {
                 frame.remove(settingsPage);
                 frame.remove(gamePage);
+                frame.remove(infoPage);
+                frame.remove(records);
                 frame.add(startScreen);
                 frame.revalidate();
                 frame.repaint();
@@ -427,6 +440,40 @@ public class GameFrame {
         gamePage.add(gamepageTop, BorderLayout.PAGE_START);
 
         gamePage.setOpaque(true);
+
+        /**
+         * This is a panel for displaying the high-score
+         * Need to look at how to log scores and nicknames, and then
+         * display the top 5 high-scores
+         */
+        records = new JPanel(new BorderLayout(10,10));
+        records.setBackground(Color.orange);
+
+        JPanel recordsTop = new JPanel();
+        recordsTop.setLayout(new BorderLayout(20,20));
+        recordsTop.setBackground(new Color(255,233,137));
+        JLabel recordsTitle = new JLabel("Highscores", SwingConstants.CENTER);
+        recordsTitle.setFont(new Font("Arial", Font.BOLD, 30));
+        recordsTop.add(recordsTitle, BorderLayout.PAGE_END);
+        backtoHome = new JButton("back");
+        backtoHome.setForeground(Color.black);
+        backtoHome.setBackground(Color.white);
+        backtoHome.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.remove(settingsPage);
+                frame.remove(gamePage);
+                frame.remove(records);
+                frame.remove(infoPage);
+                frame.add(startScreen);
+                frame.revalidate();
+                frame.repaint();
+            }
+        });
+        recordsTop.add(backtoHome, BorderLayout.LINE_START);
+        records.add(recordsTop, BorderLayout.NORTH);
+
+        records.setOpaque(true);
 
         // basic frame stuff here
         frame.setPreferredSize(new Dimension(600,600));
