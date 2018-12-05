@@ -9,8 +9,8 @@ public class GameFrame {
     JLabel gameName;
     JPanel startScreen, gamePage, settingsPage, infoPage, records;
     final int width = 55, height = 35;
-    int posx = 300 - (width/2);
-    int posy = 500 - (height/2);
+    int posx = 350 - (width/2);
+    int posy = 600 - (height/2);
 
     public GameFrame() {
         frame = new JFrame("Frogger 1705063");
@@ -474,7 +474,7 @@ public class GameFrame {
         records.setOpaque(true);
 
         // basic frame stuff here
-        frame.setPreferredSize(new Dimension(600,600));
+        frame.setPreferredSize(new Dimension(700,700));
         frame.setResizable(false);
         frame.pack();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
