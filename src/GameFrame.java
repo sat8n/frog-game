@@ -182,9 +182,10 @@ public class GameFrame {
                 int[] startY = {101,101,125,149,149,125};
                 int[] x = {65,90,105,90,65,50};
                 int[] y = {101,101,125,149,149,125};
-                g.drawPolygon(x,y,6);
 
+                // 1st row
                 int count = 0;
+                g.drawPolygon(x,y,6);
                 while (count < 5) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
@@ -193,19 +194,208 @@ public class GameFrame {
                     count++;
                 }
                 // reset
-                count = 0;
                 for (int i = 0; i < 6; i++) {
                     x[i] = startX[i];
-                    y[i] = startY[i];
-                    y[i] += 20;
+                    y[i] += 27;
+                    x[i] += 43;
                 }
 
+                // 2nd row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 4) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 26;
+                }
+
+                // 3rd row
+                count = 0;
+                g.drawPolygon(x,y,6);
                 while (count < 5) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
                     g.drawPolygon(x,y,6);
                     count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 27;
+                    x[i] += 43;
+                }
+
+                // 4th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 4) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 26;
+                }
+
+                // 5th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 5) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 27;
+                    x[i] += 43;
+                }
+
+                // 6th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 4) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 26;
+                }
+
+                // 7th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 5) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 27;
+                    x[i] += 43;
+                }
+
+                // 8th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 4) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 26;
+                }
+
+                // 9th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 5) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 27;
+                    x[i] += 43;
+                }
+
+                // 10th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 4) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 26;
+                }
+
+                // 11th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 5) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 27;
+                    x[i] += 43;
+                }
+
+                // 12th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 4) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 26;
+                }
+
+                // 13th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 5) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 27;
+                    x[i] += 43;
                 }
 
                 // ribbit
@@ -249,45 +439,4 @@ public class GameFrame {
     public static void main(String[] args) {
         new GameFrame();
     }
-}
-
-/**
- * This frogListener class will be moved to a new .java file in the future
- *
- */
-class frogListener implements KeyListener {
-    GameFrame theFrame;
-
-    public frogListener(GameFrame f) {
-        this.theFrame = f;
-    }
-
-    public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            if (theFrame.posx > 50) {
-                theFrame.posx -= 5;
-            }
-            theFrame.gamePage.repaint();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if (theFrame.posx < 500) {
-                theFrame.posx += 5;
-            }
-            theFrame.gamePage.repaint();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
-            if (theFrame.posy > 80) {
-                theFrame.posy -= 7;
-            }
-            theFrame.gamePage.repaint();
-        }
-        if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            if (theFrame.posy < 481) {
-                theFrame.posy += 7;
-            }
-            theFrame.gamePage.repaint();
-        }
-    }
-    public void keyTyped(KeyEvent e) { }
-    public void keyReleased(KeyEvent e) { }
 }
