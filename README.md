@@ -4,8 +4,8 @@
 ## To-do list
 - [ ] Make the code for painting hexagons neater
 - [X] Separate the frogListener to a new class file
-- [ ] Separate the paintComponent into it's own class (see #2 below)
-- [ ] Create a JPanel for the highscore page
+- [ ] Separate the paintComponent into its own class (see #2 below)
+- [X] Create a JPanel for the highscore page
 - [ ] Try and implement mouse functionality somehow (maybe turn Frogger into Zuma?? this game is a mess)
 - [X] it's wednesday my dudes
 
