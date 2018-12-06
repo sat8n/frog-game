@@ -3,6 +3,7 @@
 
 ## To-do list
 - [ ] Make the code for painting hexagons neater
+- [ ] Reset position of frog when the wins/quits game and then starts a new one
 - [X] Separate the frogListener to a new class file
 - [ ] Separate the paintComponent into its own class (see #2 below)
 - [X] Create a JPanel for the highscore page
