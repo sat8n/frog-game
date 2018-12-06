@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GameFrame {
@@ -14,6 +15,12 @@ public class GameFrame {
     int initialY = (((604-556)/2) + 556) - (height/2);
     int posx = (((378-323)/2) + 323) - (width/2);
     int posy = (((604-556)/2) + 556) - (height/2);
+    int[] startX = {80,105,120,105,80,65};
+    int[] startY = {71,71,95,119,119,95};
+    int[] x = {80,105,120,105,80,65};
+    int[] y = {71,71,95,119,119,95};
+    int centerX, centerY;
+    ArrayList calcX, calcY;
 
     public GameFrame() {
         frame = new JFrame("Frogger 1705063");
@@ -184,6 +191,8 @@ public class GameFrame {
          * So maybe the game might be frogger?? but with a satanic aspect
          * The satanic aspect will be added later (hopefully)
          */
+        calcX = new ArrayList();
+        calcY = new ArrayList();
         gamePage = new JPanel() {
             @Override
             public void paintComponent(Graphics g) { // we want to separate the paintComponent too
@@ -192,10 +201,6 @@ public class GameFrame {
                 // hexagons - find a way to make the code neater
                 // we want to create a few rows to hexagons
                 g.setColor(new Color(255,165,0));
-                int[] startX = {80,105,120,105,80,65};
-                int[] startY = {71,71,95,119,119,95};
-                int[] x = {80,105,120,105,80,65};
-                int[] y = {71,71,95,119,119,95};
 
                 // odd rows
                 int count = 0;
@@ -210,12 +215,22 @@ public class GameFrame {
                     }
                     else {
                         System.out.println("Odd hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                        centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
+                        centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
+                        calcX.add(centerX);
+                        calcY.add(centerY);
+                        System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
                         g.drawPolygon(x,y,6); // draws the first hexagon
                         while (count < 6) {
                             for (int i = 0; i < 6; i++) {
                                 x[i] += 86;
                             }
                             System.out.println("Odd hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                            centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
+                            centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
+                            calcX.add(centerX);
+                            calcY.add(centerY);
+                            System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
                             g.drawPolygon(x,y,6);
                             count++;
                         }
@@ -245,12 +260,22 @@ public class GameFrame {
                     }
                     else {
                         System.out.println("Even hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                        centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
+                        centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
+                        calcX.add(centerX);
+                        calcY.add(centerY);
+                        System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
                         g.drawPolygon(x,y,6);
                         while (count < 5) {
                             for (int i = 0; i < 6; i++) {
                                 x[i] += 86;
                             }
                             System.out.println("Even hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                            centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
+                            centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
+                            calcX.add(centerX);
+                            calcY.add(centerY);
+                            System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
                             g.drawPolygon(x,y,6);
                             count++;
                         }
@@ -274,6 +299,11 @@ public class GameFrame {
                         x[i] += 86;
                     }
                     System.out.println("Starting hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                    centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
+                    centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
+                    calcX.add(centerX);
+                    calcY.add(centerY);
+                    System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
                     g.drawPolygon(x,y,6);
                     count++;
                 }
@@ -289,6 +319,11 @@ public class GameFrame {
                     x[i] += 258;
                 }
                 System.out.println("Initial hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
+                centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
+                calcX.add(centerX);
+                calcY.add(centerY);
+                System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
                 g.drawPolygon(x,y,6);
 
                 // ribbit
