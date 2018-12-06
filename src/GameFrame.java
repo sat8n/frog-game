@@ -187,15 +187,14 @@ public class GameFrame {
                 // hexagons - find a way to make the code neater
                 // we want to create a few rows to hexagons
                 g.setColor(new Color(255,165,0));
-                int[] startX = {65,90,105,90,65,50};
-                int[] startY = {101,101,125,149,149,125};
-                int[] x = {65,90,105,90,65,50};
-                int[] y = {101,101,125,149,149,125};
+                int[] startX = {75,100,115,100,75,60};
+                int[] x = {75,100,115,100,75,60};
+                int[] y = {71,71,95,119,119,95};
 
                 // 1st row
                 int count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 5) {
+                while (count < 6) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -212,7 +211,7 @@ public class GameFrame {
                 // 2nd row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 4) {
+                while (count < 5) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -228,7 +227,7 @@ public class GameFrame {
                 // 3rd row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 5) {
+                while (count < 6) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -245,7 +244,7 @@ public class GameFrame {
                 // 4th row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 4) {
+                while (count < 5) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -261,7 +260,7 @@ public class GameFrame {
                 // 5th row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 5) {
+                while (count < 6) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -278,7 +277,7 @@ public class GameFrame {
                 // 6th row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 4) {
+                while (count < 5) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -294,7 +293,7 @@ public class GameFrame {
                 // 7th row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 5) {
+                while (count < 6) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -311,7 +310,7 @@ public class GameFrame {
                 // 8th row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 4) {
+                while (count < 5) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -327,7 +326,7 @@ public class GameFrame {
                 // 9th row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 5) {
+                while (count < 6) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -344,7 +343,7 @@ public class GameFrame {
                 // 10th row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 4) {
+                while (count < 5) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -360,7 +359,7 @@ public class GameFrame {
                 // 11th row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 5) {
+                while (count < 6) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -377,7 +376,7 @@ public class GameFrame {
                 // 12th row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 4) {
+                while (count < 5) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -393,7 +392,7 @@ public class GameFrame {
                 // 13th row
                 count = 0;
                 g.drawPolygon(x,y,6);
-                while (count < 5) {
+                while (count < 6) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
@@ -406,6 +405,100 @@ public class GameFrame {
                     y[i] += 27;
                     x[i] += 43;
                 }
+
+                // 14th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 5) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 26;
+                }
+
+                // 15th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 6) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 27;
+                    x[i] += 43;
+                }
+
+                // 16th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 5) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 26;
+                }
+
+                // 17th row
+                count = 0;
+                g.drawPolygon(x,y,6);
+                while (count < 6) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 26;
+                }
+
+                // starting point
+                for (int i = 0; i < 6; i++) {
+                    y[i] += 1;
+                    x[i] += 129;
+                }
+                count = 0;
+                while (count < 2) {
+                    for (int i = 0; i < 6; i++) {
+                        x[i] += 86;
+                    }
+                    g.drawPolygon(x,y,6);
+                    count++;
+                }
+                // reset
+                for (int i = 0; i < 6; i++) {
+                    x[i] = startX[i];
+                    y[i] += 26;
+                }
+
+                // initial
+                for (int i = 0; i < 6; i++) {
+                    //y[i] += 1;
+                    x[i] += 172;
+                }
+                for (int i = 0; i < 6; i++) {
+                    x[i] += 86;
+                }
+                g.drawPolygon(x,y,6);
 
                 // ribbit
                 g.setColor(new Color(52,169,95));
