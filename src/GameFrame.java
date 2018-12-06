@@ -209,13 +209,13 @@ public class GameFrame {
                         }
                     }
                     else {
-                        System.out.println("Hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                        System.out.println("Odd hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
                         g.drawPolygon(x,y,6); // draws the first hexagon
                         while (count < 6) {
                             for (int i = 0; i < 6; i++) {
                                 x[i] += 86;
                             }
-                            System.out.println("Hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                            System.out.println("Odd hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
                             g.drawPolygon(x,y,6);
                             count++;
                         }
@@ -244,13 +244,13 @@ public class GameFrame {
                         }
                     }
                     else {
-                        System.out.println("Hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                        System.out.println("Even hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
                         g.drawPolygon(x,y,6);
                         while (count < 5) {
                             for (int i = 0; i < 6; i++) {
                                 x[i] += 86;
                             }
-                            System.out.println("Hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                            System.out.println("Even hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
                             g.drawPolygon(x,y,6);
                             count++;
                         }
@@ -273,7 +273,7 @@ public class GameFrame {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
-                    System.out.println("Hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                    System.out.println("Starting hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
                     g.drawPolygon(x,y,6);
                     count++;
                 }
@@ -288,7 +288,7 @@ public class GameFrame {
                 for (int i = 0; i < 6; i++) {
                     x[i] += 258;
                 }
-                System.out.println("Hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
+                System.out.println("Initial hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
                 g.drawPolygon(x,y,6);
 
                 // ribbit
