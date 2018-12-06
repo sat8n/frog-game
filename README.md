@@ -2,7 +2,8 @@
 **Deadline:** 11:59:59, Wednesday 12th December 2018
 
 ## To-do list
-- [ ] Make the code for painting hexagons neater
+- [X] Make the code for painting hexagons neater
+- [ ] Restrict the frog's movement so that it moves to the coordinates of the hexagons, rather than moving freely 
 - [ ] Reset position of frog when the wins/quits game and then starts a new one
 - [X] Separate the frogListener to a new class file
 - [ ] Separate the paintComponent into its own class (see #2 below)
