@@ -331,7 +331,7 @@ public class GameFrame {
                 g.fillOval(posx, posy, width, height);
             }
         };
-        frame.addKeyListener(new frogListener(this));
+        //frame.addKeyListener(new frogListener(this));
         frame.setFocusable(true);
         gamePage.setBackground(new Color(220,221,255));
 
