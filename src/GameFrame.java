@@ -192,9 +192,9 @@ public class GameFrame {
                 // hexagons - find a way to make the code neater
                 // we want to create a few rows to hexagons
                 g.setColor(new Color(255,165,0));
-                int[] startX = {75,100,115,100,75,60};
+                int[] startX = {80,105,120,105,80,65};
                 int[] startY = {71,71,95,119,119,95};
-                int[] x = {75,100,115,100,75,60};
+                int[] x = {80,105,120,105,80,65};
                 int[] y = {71,71,95,119,119,95};
 
                 // odd rows
@@ -278,7 +278,7 @@ public class GameFrame {
                     y[i] += 26;
                 }
                 // initial point has
-                // x-coordinates of [333, 358, 373, 358, 333, 318]
+                // x-coordinates of [338, 363, 378, 363, 338, 323]
                 // y-coordinates of [556, 556, 580, 604, 604, 580]
                 for (int i = 0; i < 6; i++) {
                     x[i] += 258;
@@ -287,7 +287,7 @@ public class GameFrame {
 
                 // ribbit
                 g.setColor(new Color(52,169,95));
-                g.fillRect(posx, posy, width, height);
+                g.fillOval(posx, posy, width, height);
             }
         };
         frame.addKeyListener(new frogListener(this));
