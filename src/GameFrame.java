@@ -10,6 +10,8 @@ public class GameFrame {
     JLabel gameName;
     JPanel startScreen, gamePage, settingsPage, infoPage, records;
     final int width = 55, height = 35;
+    int initialX = 350 - (width/2);
+    int initialY = 600 - (height/2);
     int posx = 350 - (width/2);
     int posy = 600 - (height/2);
 
@@ -115,6 +117,8 @@ public class GameFrame {
                 frame.remove(infoPage);
                 frame.remove(records);
                 frame.add(gamePage);
+                posx = initialX;
+                posy = initialY;
                 frame.revalidate();
                 frame.repaint();
             }
