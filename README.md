@@ -12,6 +12,7 @@
 - [ ] Separate the paintComponent into its own class (see #2 below)
 - [X] Create a JPanel for the highscore page
 - [ ] Try and implement mouse functionality somehow (maybe turn Frogger into Zuma?? this game is a mess)
+	- [ ] Frog's tongue will be activated by the mouse listener to "catch" flies
 - [X] it's wednesday my dudes
 
 ## Your Task
