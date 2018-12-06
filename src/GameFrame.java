@@ -11,9 +11,9 @@ public class GameFrame {
     JPanel startScreen, gamePage, settingsPage, infoPage, records;
     final int width = 55, height = 35;
     int initialX = 350 - (width/2);
-    int initialY = 600 - (height/2);
+    int initialY = (((604-556)/2) + 556) - (height/2);
     int posx = 350 - (width/2);
-    int posy = 600 - (height/2);
+    int posy = (((604-556)/2) + 556) - (height/2);
 
     public GameFrame() {
         frame = new JFrame("Frogger 1705063");
