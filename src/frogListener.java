@@ -10,13 +10,13 @@ class frogListener implements KeyListener {
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            if (theFrame.posx > 50) {
+            if (theFrame.posx > 63) {
                 theFrame.posx -= 5;
             }
             theFrame.gamePage.repaint();
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if (theFrame.posx < 500) {
+            if (theFrame.posx < 575) {
                 theFrame.posx += 5;
             }
             theFrame.gamePage.repaint();
@@ -28,7 +28,7 @@ class frogListener implements KeyListener {
             theFrame.gamePage.repaint();
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            if (theFrame.posy < 481) {
+            if (theFrame.posy < 581) {
                 theFrame.posy += 7;
             }
             theFrame.gamePage.repaint();
