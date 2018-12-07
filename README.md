@@ -7,6 +7,7 @@
 	- [X] Create 2 lists to hold x and y coordinates of the hexagons' center points - we only need to store 2 values each for x and y, as we only need these values to calculate the center of the hexagon
 	- [X] Merge those lists together into an array, i.e. int\[]\[] positions = {\[0,0],\[2,2]}
 	- [ ] Use this array of x,y coordinates to check where the user can go. Say, when the left arrow key is pressed, the program checks the position of the user and then checks where the closest, left-most hexagon is (e.g. no more than 10 pixels to the left, on the x-axis, from the user's position). If user wants to go left or right, they'll always land on the north-west/east hexagon. If they want to go to a hexagon that is south-west/east, then they'll have to go left/right then down.
+	![Image of game board](/Screenshots/gameBoard.PNG)
 - [X] Reset position of frog when the user wins/quits game and then starts a new one
 - [X] Separate the frogListener to a new class file
 - [ ] Separate the paintComponent into its own class (see #2 below)
