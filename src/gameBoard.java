@@ -146,7 +146,7 @@ public class gameBoard extends JPanel {
         // these are all the positions the frog can go to
         // the first 63 are the odd rows
         for (int i = 0; i < 114; i++) {
-            //System.out.println("frogPos: " + frogPosition.get(i));
+            //System.out.println("frogPos: " + Arrays.toString(frogPosition.get(i)));
         }
     }
 
