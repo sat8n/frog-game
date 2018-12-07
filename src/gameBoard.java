@@ -1,13 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class gameBoard extends JPanel {
     final int width = 55, height = 35;
     int posx = (((378-323)/2) + 323) - (width/2);
     int posy = (((604-556)/2) + 556) - (height/2);
+    int centerX, centerY;
+    ArrayList<Integer> calcX, calcY; // the first set of x,y coordinates have a size of 114
+    ArrayList frogPosition;
 
     public gameBoard() {
        setBackground(new Color(220,221,255));
@@ -29,10 +31,9 @@ public class gameBoard extends JPanel {
         int[] startY = {71,71,95,119,119,95};
         int[] x = {80,105,120,105,80,65};
         int[] y = {71,71,95,119,119,95};
-        int centerX, centerY;
-        ArrayList calcX, calcY;
         calcX = new ArrayList();
         calcY = new ArrayList();
+        frogPosition = new ArrayList<>();
 
         g.setColor(new Color(255,165,0));
 
@@ -48,23 +49,17 @@ public class gameBoard extends JPanel {
                 }
             }
             else {
-                System.out.println("Odd hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
                 centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
                 centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-                calcX.add(centerX);
-                calcY.add(centerY);
-                System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
+                frogPosition.add(Arrays.toString(getXY()));
                 g.drawPolygon(x,y,6); // draws the first hexagon
                 while (count < 6) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
-                    System.out.println("Odd hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
                     centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
                     centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-                    calcX.add(centerX);
-                    calcY.add(centerY);
-                    System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
+                    frogPosition.add(Arrays.toString(getXY()));
                     g.drawPolygon(x,y,6);
                     count++;
                 }
@@ -93,23 +88,17 @@ public class gameBoard extends JPanel {
                 }
             }
             else {
-                System.out.println("Even hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
                 centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
                 centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-                calcX.add(centerX);
-                calcY.add(centerY);
-                System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
+                frogPosition.add(Arrays.toString(getXY()));
                 g.drawPolygon(x,y,6);
                 while (count < 5) {
                     for (int i = 0; i < 6; i++) {
                         x[i] += 86;
                     }
-                    System.out.println("Even hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
                     centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
                     centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-                    calcX.add(centerX);
-                    calcY.add(centerY);
-                    System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
+                    frogPosition.add(Arrays.toString(getXY()));
                     g.drawPolygon(x,y,6);
                     count++;
                 }
@@ -132,12 +121,9 @@ public class gameBoard extends JPanel {
             for (int i = 0; i < 6; i++) {
                 x[i] += 86;
             }
-            System.out.println("Starting hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
             centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
             centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-            calcX.add(centerX);
-            calcY.add(centerY);
-            System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
+            frogPosition.add(Arrays.toString(getXY()));
             g.drawPolygon(x,y,6);
             count++;
         }
@@ -152,17 +138,26 @@ public class gameBoard extends JPanel {
         for (int i = 0; i < 6; i++) {
             x[i] += 258;
         }
-        System.out.println("Initial hexagon: x[" + x[2] + "," + x[5] + "], y[" + y[4] + "," + y[0] + "]");
         centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
         centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-        calcX.add(centerX);
-        calcY.add(centerY);
-        System.out.println("Center: " + calcX.get(calcX.size()-1) + " " + calcY.get(calcX.size()-1));
+        frogPosition.add(Arrays.toString(getXY()));
         g.drawPolygon(x,y,6);
+
+        // these are all the positions the frog can go to
+        for (int i = 0; i < 114; i++) {
+            System.out.println("frogPos: " + frogPosition.get(i));
+        }
     }
 
     public void frog(Graphics g) {
         g.setColor(new Color(52,169,95));
         g.fillOval(posx, posy, width, height);
+    }
+
+    public int[] getXY() {
+        calcX.add(centerX);
+        calcY.add(centerY);
+        int[] position = {calcX.get(calcX.size()-1),calcY.get(calcY.size()-1)};
+        return position;
     }
 }
