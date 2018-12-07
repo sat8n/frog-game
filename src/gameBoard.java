@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class gameBoard extends JPanel {
     final int width = 55, height = 35;
@@ -15,7 +14,6 @@ public class gameBoard extends JPanel {
        setBackground(new Color(220,221,255));
        JPanel gamepageTop = new JPanel();
        gamepageTop.setLayout(new BorderLayout(20,20));
-       gamepageTop.setBackground(new Color(255,208,0));
        add(gamepageTop);
     }
 
