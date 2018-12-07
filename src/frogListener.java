@@ -12,25 +12,22 @@ class frogListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
             if (board.posx > 63) {
-                //board.posx -= 5;
                 board.posx -= 43;
-                board.posy -= 26;
-                System.out.println("[" + board.posx + ", " + board.posy + "]");
+                board.posy -= 27;
             }
             board.repaint();
         }
+
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             if (board.posx < 575) {
-                //board.posx += 5;
                 board.posx += 43;
-                board.posy -= 26;
+                board.posy -= 27;
             }
-
             board.repaint();
         }
+
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             if (board.posy > 80) {
-                //board.posy -= 7;
                 /**
                  * if we want to go up, then we want to look at the y value
                  * we know the x value stays the same, but the y value changes
@@ -45,17 +42,16 @@ class frogListener implements KeyListener {
                         diffY = board.posy - board.frogPosition.get(i)[1];
                         if (diffY < 100 && diffY > 0) {
                             board.posy = board.frogPosition.get(i)[1];
-                            System.out.println("current pos: " + board.posy);
                         }
                     }
                 }
             }
             board.repaint();
         }
+
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             if (board.posy < 563) {
                 board.posy += 54;
-                System.out.println("current pos: " + board.posy);
             }
             board.repaint();
         }
