@@ -8,7 +8,8 @@ public class runGame extends JFrame {
 
         gameBoard panel = new gameBoard();
         add(panel);
-        addKeyListener(new frogListener(panel));
+        panel.addKeyListener(new frogListener(panel));
+        panel.setFocusable(true);
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);
