@@ -15,6 +15,7 @@ class frogListener implements KeyListener {
                 //board.posx -= 5;
                 board.posx -= 43;
                 board.posy -= 26;
+                System.out.println("[" + board.posx + ", " + board.posy + "]");
             }
             board.repaint();
         }
@@ -44,6 +45,7 @@ class frogListener implements KeyListener {
                         diffY = board.posy - board.frogPosition.get(i)[1];
                         if (diffY < 100 && diffY > 0) {
                             board.posy = board.frogPosition.get(i)[1];
+                            System.out.println("current pos: " + board.posy);
                         }
                     }
                 }
@@ -51,9 +53,9 @@ class frogListener implements KeyListener {
             board.repaint();
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            if (board.posy < 581) {
-                //board.posy += 7;
+            if (board.posy < 563) {
                 board.posy += 54;
+                System.out.println("current pos: " + board.posy);
             }
             board.repaint();
         }
