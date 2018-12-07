@@ -10,16 +10,21 @@
 	- [X] Use this array of x,y coordinates to check where the user can go. ~Say, when the left arrow key is pressed, the program checks the position of the user and then checks where the closest, left-most hexagon is (e.g. no more than 10 pixels to the left, on the x-axis, from the user's position). If user wants to go left or right, they'll always land on the north-west/east hexagon. If they want to go to a hexagon that is south-west/east, then they'll have to go left/right then down.~ The frog's position now changes by subtracting or adding to their current x,y coordinates.
 - [X] Reset position of frog when the user wins/quits game and then starts a new one
 - [X] Separate the frogListener to a new class file
+- [ ] If there's time, create a pixel sprite for the frog
 #### flies
 - [X] Create "flies" on the hexagon tiles. Their positions need to be randomised every time the user plays a new game.
 - [ ] Create MouseListener for frog's tongue so that it can "capture" the flies
+- [ ] If there's time, create pixel sprites for the flies
 #### board
 - [X] Make the code for painting hexagons neater
 #### game
-- [ ] Separate the paintComponent into its own class (see #2 below)
+- [ ] Separate the paintComponent into its own class (see #2 below) - shapes should have their own abstract class if possible
 - [ ] Separate the JPanels into their own classes to make the code neater
 - [X] Create a JPanel for the highscore page
-- [ ] Search for a way to log in the scores of players (i.e. get the player to enter their 'nickname' at the end of the game and record it with their score)
+- [ ] Search for a way to log in the scores of players (i.e. get the player to enter their 'nickname' at the end of the game and record it with their score) - since this would probably use a text field, alpha-numeric characters should only be entered (or an exception could be thrown otherwise)
+### report
+- [ ] The program should contain small, relevant comments that briefly explain a piece of code
+- [ ] Once the game is complete, the report needs to be written. This repository can be used to help write the report
 
 ## Your Task
 Applying what you've learned so far, you are asked to write your own 2-dimensional shape-based game. Examples of this would include Pong, Snack, Space Invaders, or other simple 2D games of your creation.
