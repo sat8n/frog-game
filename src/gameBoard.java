@@ -14,7 +14,11 @@ public class gameBoard extends JPanel {
        setBackground(new Color(220,221,255));
        JPanel gamepageTop = new JPanel();
        gamepageTop.setLayout(new BorderLayout(20,20));
-       add(gamepageTop);
+       JButton backtoHome = new JButton("quit");
+       backtoHome.setForeground(Color.black);
+       backtoHome.setBackground(Color.white);
+       gamepageTop.add(backtoHome, BorderLayout.CENTER);
+       add(gamepageTop, BorderLayout.PAGE_START);
     }
 
     public void paintComponent(Graphics g) {
