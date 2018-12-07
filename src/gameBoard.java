@@ -17,10 +17,10 @@ public class gameBoard extends JPanel {
     private Random r = new Random();
 
     public gameBoard() {
-       setBackground(new Color(220,221,255));
+       setBackground(new Color(215,234,255));
        JPanel gamepageTop = new JPanel();
        gamepageTop.setLayout(new BorderLayout(20,20));
-       gamepageTop.setBackground(new Color(220,221,255));
+       gamepageTop.setBackground(new Color(215,234,255));
        JButton backtoHome = new JButton("quit");
        backtoHome.setForeground(Color.black);
        backtoHome.setBackground(Color.white);
@@ -47,8 +47,6 @@ public class gameBoard extends JPanel {
         frogPosition = new ArrayList<>();
         flyPosition = new ArrayList<>();
 
-        g.setColor(new Color(255,165,0));
-
         // odd rows
         int count = 0;
         int oddRows = 0;
@@ -67,6 +65,9 @@ public class gameBoard extends JPanel {
                 flyX = (((x[2]-x[5])/2) + x[5])-(flyWidth/2);
                 flyY = (((y[4] - y[0])/2) + y[0])-(flyHeight/2);
                 flyPosition.add(getFlyXY());
+                g.setColor(new Color(204,229,204));
+                g.fillPolygon(x,y,6);
+                g.setColor(new Color(224,239,224));
                 g.drawPolygon(x,y,6); // draws the first hexagon
                 while (count < 6) {
                     for (int i = 0; i < 6; i++) {
@@ -78,6 +79,9 @@ public class gameBoard extends JPanel {
                     flyX = (((x[2]-x[5])/2) + x[5])-(flyWidth/2);
                     flyY = (((y[4] - y[0])/2) + y[0])-(flyHeight/2);
                     flyPosition.add(getFlyXY());
+                    g.setColor(new Color(204,229,204));
+                    g.fillPolygon(x,y,6);
+                    g.setColor(new Color(224,239,224));
                     g.drawPolygon(x,y,6);
                     count++;
                 }
@@ -112,6 +116,9 @@ public class gameBoard extends JPanel {
                 flyX = (((x[2]-x[5])/2) + x[5])-(flyWidth/2);
                 flyY = (((y[4] - y[0])/2) + y[0])-(flyHeight/2);
                 flyPosition.add(getFlyXY());
+                g.setColor(new Color(204,229,204));
+                g.fillPolygon(x,y,6);
+                g.setColor(new Color(224,239,224));
                 g.drawPolygon(x,y,6);
                 while (count < 5) {
                     for (int i = 0; i < 6; i++) {
@@ -123,6 +130,9 @@ public class gameBoard extends JPanel {
                     flyX = (((x[2]-x[5])/2) + x[5])-(flyWidth/2);
                     flyY = (((y[4] - y[0])/2) + y[0])-(flyHeight/2);
                     flyPosition.add(getFlyXY());
+                    g.setColor(new Color(204,229,204));
+                    g.fillPolygon(x,y,6);
+                    g.setColor(new Color(224,239,224));
                     g.drawPolygon(x,y,6);
                     count++;
                 }
@@ -134,7 +144,7 @@ public class gameBoard extends JPanel {
         }
 
         // creating the 3 hexagons for the starting area
-        g.setColor(Color.blue);
+        g.setColor(new Color(65,45,34));
         for (int i = 0; i < 6; i++) {
             x[i] = startX[i];
             y[i] += 27;
@@ -151,6 +161,9 @@ public class gameBoard extends JPanel {
             flyX = (((x[2]-x[5])/2) + x[5])-(flyWidth/2);
             flyY = (((y[4] - y[0])/2) + y[0])-(flyHeight/2);
             flyPosition.add(getFlyXY());
+            g.setColor(new Color(220,201,173));
+            g.fillPolygon(x,y,6);
+            g.setColor(new Color(234,222,205));
             g.drawPolygon(x,y,6);
             count++;
         }
@@ -171,6 +184,9 @@ public class gameBoard extends JPanel {
         flyX = (((x[2]-x[5])/2) + x[5])-(flyWidth/2);
         flyY = (((y[4] - y[0])/2) + y[0])-(flyHeight/2);
         flyPosition.add(getFlyXY());
+        g.setColor(new Color(220,201,173));
+        g.fillPolygon(x,y,6);
+        g.setColor(new Color(234,222,205));
         g.drawPolygon(x,y,6);
 
         // bzz bzz
@@ -188,7 +204,7 @@ public class gameBoard extends JPanel {
     }
 
     private void frog(Graphics g) {
-        g.setColor(new Color(52,169,95));
+        g.setColor(new Color(0,128,64));
         g.fillOval(posx, posy, width, height);
     }
 
