@@ -12,8 +12,9 @@ public class gameBoard extends JPanel {
     private final int flyWidth = 10, flyHeight = 13;
     private int centerX, centerY, flyX, flyY;
     private ArrayList<Integer> calcX, calcY, flyCalcX, flyCalcY; // the first set of x,y coordinates have a size of 114
-    ArrayList<int[]> frogPosition, flyPosition;
-    Random r = new Random();
+    ArrayList<int[]> frogPosition;
+    private ArrayList<int[]> flyPosition;
+    private Random r = new Random();
 
     public gameBoard() {
        setBackground(new Color(220,221,255));
@@ -39,10 +40,10 @@ public class gameBoard extends JPanel {
         final int width = 55, height = 35;
         int[] x = {80,105,120,105,80,65};
         int[] y = {71,71,95,119,119,95};
-        calcX = new ArrayList();
-        calcY = new ArrayList();
-        flyCalcX = new ArrayList();
-        flyCalcY = new ArrayList();
+        calcX = new ArrayList<>();
+        calcY = new ArrayList<>();
+        flyCalcX = new ArrayList<>();
+        flyCalcY = new ArrayList<>();
         frogPosition = new ArrayList<>();
         flyPosition = new ArrayList<>();
 
