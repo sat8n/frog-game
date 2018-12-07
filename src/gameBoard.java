@@ -9,7 +9,7 @@ public class gameBoard extends JPanel {
     int posy = (((604-556)/2) + 556) - (height/2);
     int centerX, centerY;
     ArrayList<Integer> calcX, calcY; // the first set of x,y coordinates have a size of 114
-    ArrayList frogPosition;
+    ArrayList<int[]> frogPosition;
 
     public gameBoard() {
        setBackground(new Color(220,221,255));
@@ -51,7 +51,7 @@ public class gameBoard extends JPanel {
             else {
                 centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
                 centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-                frogPosition.add(Arrays.toString(getXY()));
+                frogPosition.add(getXY());
                 g.drawPolygon(x,y,6); // draws the first hexagon
                 while (count < 6) {
                     for (int i = 0; i < 6; i++) {
@@ -59,7 +59,7 @@ public class gameBoard extends JPanel {
                     }
                     centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
                     centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-                    frogPosition.add(Arrays.toString(getXY()));
+                    frogPosition.add(getXY());
                     g.drawPolygon(x,y,6);
                     count++;
                 }
@@ -90,7 +90,7 @@ public class gameBoard extends JPanel {
             else {
                 centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
                 centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-                frogPosition.add(Arrays.toString(getXY()));
+                frogPosition.add(getXY());
                 g.drawPolygon(x,y,6);
                 while (count < 5) {
                     for (int i = 0; i < 6; i++) {
@@ -98,7 +98,7 @@ public class gameBoard extends JPanel {
                     }
                     centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
                     centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-                    frogPosition.add(Arrays.toString(getXY()));
+                    frogPosition.add(getXY());
                     g.drawPolygon(x,y,6);
                     count++;
                 }
@@ -123,7 +123,7 @@ public class gameBoard extends JPanel {
             }
             centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
             centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-            frogPosition.add(Arrays.toString(getXY()));
+            frogPosition.add(getXY());
             g.drawPolygon(x,y,6);
             count++;
         }
@@ -140,12 +140,13 @@ public class gameBoard extends JPanel {
         }
         centerX = (((x[2]-x[5])/2) + x[5])-(width/2);
         centerY = (((y[4] - y[0])/2) + y[0])-(height/2);
-        frogPosition.add(Arrays.toString(getXY()));
+        frogPosition.add(getXY());
         g.drawPolygon(x,y,6);
 
         // these are all the positions the frog can go to
+        // the first 63 are the odd rows
         for (int i = 0; i < 114; i++) {
-            System.out.println("frogPos: " + frogPosition.get(i));
+            //System.out.println("frogPos: " + frogPosition.get(i));
         }
     }
 
