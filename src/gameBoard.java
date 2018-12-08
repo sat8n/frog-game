@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -17,7 +19,9 @@ public class gameBoard extends JPanel {
     ArrayList<int[]> frogPosition;
     ArrayList<int[]> flyPosition;
     Random r = new Random();
+    int randomFly;
     JButton backtoHome;
+    int cursorX, cursorY;
 
     public gameBoard() {
        setBackground(new Color(215,234,255));
@@ -37,11 +41,13 @@ public class gameBoard extends JPanel {
 
        addKeyListener(new frogListener(this));
        setFocusable(true);
+       addMouseListener(new tongueBlaster(this));
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         DrawBoard(g);
+        tongue(g);
         frog(g);
     }
 
@@ -201,7 +207,7 @@ public class gameBoard extends JPanel {
         // bzz bzz
         g.setColor(new Color(64,64,64));
         for (int i = 0; i < 5; i++) {
-            int randomFly = r.nextInt(114);
+            randomFly = r.nextInt(114);
             g.fillOval(flyPosition.get(randomFly)[0], flyPosition.get(randomFly)[1], flyWidth, flyHeight);
         }
 
@@ -215,6 +221,12 @@ public class gameBoard extends JPanel {
     private void frog(Graphics g) {
         g.setColor(new Color(0,128,64));
         g.fillOval(posx, posy, width, height);
+    }
+
+    private void tongue(Graphics g) {
+        g.setColor(Color.pink);
+        g.drawLine(posx+30, posy+15, cursorX+7, cursorY+7);
+        g.fillOval(cursorX, cursorY, 15, 15);
     }
 
     private int[] getXY() {
@@ -247,4 +259,29 @@ class fromGame implements ActionListener {
         r.revalidate();
         r.repaint();
     }
+}
+
+class tongueBlaster implements MouseListener {
+    gameBoard board;
+
+    public tongueBlaster(gameBoard b) {
+        this.board = b;
+    }
+
+    public void mousePressed(MouseEvent e) {
+        // we want the frog's tongue to blast out when mouse button is pressed
+        board.cursorX = e.getX();
+        board.cursorY = e.getY();
+        board.revalidate();
+        board.repaint();
+    }
+    public void mouseReleased(MouseEvent e) {
+        board.cursorX = 900;
+        board.cursorY = 900;
+        board.revalidate();
+        board.repaint();
+    }
+    public void mouseEntered(MouseEvent e) {    }
+    public void mouseExited(MouseEvent e) {    }
+    public void mouseClicked(MouseEvent e) {    }
 }
