@@ -23,6 +23,7 @@ public class runGame extends JFrame {
         highscore.back.addActionListener(new fromHighscore(this));
 
         board = new gameBoard();
+        board.backtoHome.addActionListener(new fromGame(this));
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);

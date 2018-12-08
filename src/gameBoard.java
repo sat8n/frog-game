@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,6 +17,7 @@ public class gameBoard extends JPanel {
     ArrayList<int[]> frogPosition;
     ArrayList<int[]> flyPosition;
     Random r = new Random();
+    JButton backtoHome;
 
     public gameBoard() {
        setBackground(new Color(215,234,255));
@@ -23,7 +26,7 @@ public class gameBoard extends JPanel {
        gamepageTop.setLayout(new BorderLayout(20,20));
        gamepageTop.setBackground(new Color(215,234,255));
 
-       JButton backtoHome = new JButton("quit");
+       backtoHome = new JButton("quit");
        backtoHome.setForeground(Color.black);
        backtoHome.setBackground(Color.white);
        gamepageTop.add(backtoHome, BorderLayout.CENTER);
@@ -226,5 +229,22 @@ public class gameBoard extends JPanel {
         flyCalcY.add(flyY);
         int[] position = {flyCalcX.get(flyCalcX.size()-1), flyCalcY.get(calcY.size()-1)};
         return position;
+    }
+}
+
+class fromGame implements ActionListener {
+    runGame r;
+
+    public fromGame(runGame r) {
+        this.r = r;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        r.remove(r.highscore);
+        r.remove(r.settings);
+        r.remove(r.board);
+        r.add(r.startPanel);
+        r.revalidate();
+        r.repaint();
     }
 }
