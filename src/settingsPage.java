@@ -28,14 +28,15 @@ public class settingsPage extends JPanel {
     }
 }
 
-class backtoHome implements ActionListener {
+class fromSettings implements ActionListener {
     runGame r;
 
-    public backtoHome(runGame r) {
+    public fromSettings(runGame r) {
         this.r = r;
     }
 
     public void actionPerformed(ActionEvent e) {
+        r.remove(r.highscore);
         r.remove(r.board);
         r.remove(r.settings);
         r.add(r.startPanel);

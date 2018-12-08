@@ -45,6 +45,7 @@ class gameStart implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
         r.remove(r.settings);
+        r.remove(r.highscore);
         r.add(r.board);
         r.board.requestFocusInWindow();
         r.revalidate();
@@ -62,7 +63,25 @@ class toSettings implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
         r.remove(r.board);
+        r.remove(r.highscore);
         r.add(r.settings);
+        r.revalidate();
+        r.repaint();
+    }
+}
+
+class toHighscore implements ActionListener {
+    runGame r;
+
+    public toHighscore(runGame r) {
+        this.r = r;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        r.remove(r.startPanel);
+        r.remove(r.board);
+        r.remove(r.settings);
+        r.add(r.highscore);
         r.revalidate();
         r.repaint();
     }
