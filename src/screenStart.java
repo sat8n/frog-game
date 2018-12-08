@@ -36,20 +36,18 @@ public class screenStart extends JPanel {
     }
 }
 
-class gameStart implements ActionListener {
+class toInfo implements ActionListener {
     runGame r;
 
-    public gameStart(runGame r) {
+    public toInfo(runGame r) {
         this.r = r;
     }
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
         r.remove(r.settings);
+        r.remove(r.board);
         r.remove(r.highscore);
-        r.add(r.board);
-        r.board.requestFocusInWindow();
-        r.board.posx = r.board.initialX;
-        r.board.posy = r.board.initialY;
+        r.add(r.instructions);
         r.revalidate();
         r.repaint();
     }

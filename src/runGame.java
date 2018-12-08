@@ -6,13 +6,14 @@ public class runGame extends JFrame {
     gameBoard board;
     settingsPage settings;
     highscorePage highscore;
+    infoPage instructions;
 
     public runGame() {
         setTitle("Frogger 1705063");
 
         startPanel = new screenStart();
         add(startPanel);
-        startPanel.start_game.addActionListener(new gameStart(this));
+        startPanel.start_game.addActionListener(new toInfo(this));
         startPanel.settings.addActionListener(new toSettings(this));
         startPanel.highscore.addActionListener(new toHighscore(this));
 
@@ -21,6 +22,9 @@ public class runGame extends JFrame {
 
         highscore = new highscorePage();
         highscore.back.addActionListener(new fromHighscore(this));
+
+        instructions = new infoPage();
+        instructions.start.addActionListener(new gameStart(this));
 
         board = new gameBoard();
         board.backtoHome.addActionListener(new fromGame(this));
