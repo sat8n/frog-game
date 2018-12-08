@@ -4,6 +4,7 @@ import java.awt.*;
 public class runGame extends JFrame {
     screenStart startPanel;
     gameBoard board;
+    settingsPage settings;
 
     public runGame() {
         setTitle("Frogger 1705063");
@@ -11,6 +12,10 @@ public class runGame extends JFrame {
         startPanel = new screenStart();
         add(startPanel);
         startPanel.start_game.addActionListener(new gameStart(this));
+        startPanel.settings.addActionListener(new toSettings(this));
+
+        settings = new settingsPage();
+        settings.back.addActionListener(new backtoHome(this));
 
         board = new gameBoard();
 

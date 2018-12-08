@@ -44,8 +44,25 @@ class gameStart implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
+        r.remove(r.settings);
         r.add(r.board);
         r.board.requestFocusInWindow();
+        r.revalidate();
+        r.repaint();
+    }
+}
+
+class toSettings implements ActionListener {
+    runGame r;
+
+    public toSettings(runGame r) {
+        this.r = r;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        r.remove(r.startPanel);
+        r.remove(r.board);
+        r.add(r.settings);
         r.revalidate();
         r.repaint();
     }
