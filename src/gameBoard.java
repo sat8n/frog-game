@@ -4,30 +4,36 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class gameBoard extends JPanel {
-    private final int width = 55, height = 35;
+    final int width = 55, height = 35;
     int posx = (((378-323)/2) + 323) - (width/2);
     int posy = (((604-556)/2) + 556) - (height/2);
-    private int[] startX = {80,105,120,105,80,65};
-    private int[] startY = {71,71,95,119,119,95};
-    private final int flyWidth = 10, flyHeight = 13;
-    private int centerX, centerY, flyX, flyY;
-    private ArrayList<Integer> calcX, calcY, flyCalcX, flyCalcY; // the first set of x,y coordinates have a size of 114
+    int[] startX = {80,105,120,105,80,65};
+    int[] startY = {71,71,95,119,119,95};
+    final int flyWidth = 10, flyHeight = 13;
+    int centerX, centerY, flyX, flyY;
+    ArrayList<Integer> calcX, calcY, flyCalcX, flyCalcY; // the first set of x,y coordinates have a size of 114
     ArrayList<int[]> frogPosition;
-    private ArrayList<int[]> flyPosition;
-    private Random r = new Random();
+    ArrayList<int[]> flyPosition;
+    Random r = new Random();
 
     public gameBoard() {
        setBackground(new Color(215,234,255));
+
        JPanel gamepageTop = new JPanel();
        gamepageTop.setLayout(new BorderLayout(20,20));
        gamepageTop.setBackground(new Color(215,234,255));
+
        JButton backtoHome = new JButton("quit");
        backtoHome.setForeground(Color.black);
        backtoHome.setBackground(Color.white);
        gamepageTop.add(backtoHome, BorderLayout.CENTER);
+
        JLabel score = new JLabel("Score: 0", SwingConstants.CENTER);
        gamepageTop.add(score, BorderLayout.EAST);
        add(gamepageTop, BorderLayout.PAGE_START);
+
+       addKeyListener(new frogListener(this));
+       setFocusable(true);
     }
 
     public void paintComponent(Graphics g) {

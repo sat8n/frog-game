@@ -2,14 +2,17 @@ import javax.swing.*;
 import java.awt.*;
 
 public class runGame extends JFrame {
+    screenStart startPanel;
+    gameBoard board;
+
     public runGame() {
         setTitle("Frogger 1705063");
-        getContentPane().setBackground(new Color(255,233,137));
 
-        gameBoard panel = new gameBoard();
-        add(panel);
-        panel.addKeyListener(new frogListener(panel));
-        panel.setFocusable(true);
+        startPanel = new screenStart();
+        add(startPanel);
+        startPanel.start_game.addActionListener(new gameStart(this));
+
+        board = new gameBoard();
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);
@@ -17,8 +20,8 @@ public class runGame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
+
     public static void main(String[] args) {
         new runGame();
-        //new GameFrame();
     }
 }
