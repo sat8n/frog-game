@@ -24,24 +24,24 @@ public class gameBoard extends JPanel {
     int cursorX, cursorY;
 
     public gameBoard() {
-       setBackground(new Color(215,234,255));
+        setBackground(new Color(215,234,255));
 
-       JPanel gamepageTop = new JPanel();
-       gamepageTop.setLayout(new BorderLayout(20,20));
-       gamepageTop.setBackground(new Color(215,234,255));
+        JPanel gamepageTop = new JPanel();
+        gamepageTop.setLayout(new BorderLayout(20,20));
 
-       backtoHome = new JButton("quit");
-       backtoHome.setForeground(Color.black);
-       backtoHome.setBackground(Color.white);
-       gamepageTop.add(backtoHome, BorderLayout.CENTER);
+        backtoHome = new JButton("quit");
+        backtoHome.setForeground(Color.black);
+        backtoHome.setBackground(Color.white);
+        gamepageTop.add(backtoHome, BorderLayout.CENTER);
 
-       JLabel score = new JLabel("Score: 0", SwingConstants.CENTER);
-       gamepageTop.add(score, BorderLayout.EAST);
-       add(gamepageTop, BorderLayout.PAGE_START);
+        JLabel score = new JLabel("Score: 0", SwingConstants.CENTER);
+        gamepageTop.add(score, BorderLayout.EAST);
+        gamepageTop.setOpaque(false);
+        add(gamepageTop, BorderLayout.NORTH);
 
-       addKeyListener(new frogListener(this));
-       setFocusable(true);
-       addMouseListener(new tongueBlaster(this));
+        addKeyListener(new frogListener(this));
+        setFocusable(true);
+        addMouseListener(new tongueBlaster(this));
     }
 
     public void paintComponent(Graphics g) {
@@ -272,6 +272,7 @@ class tongueBlaster implements MouseListener {
         // we want the frog's tongue to blast out when mouse button is pressed
         board.cursorX = e.getX();
         board.cursorY = e.getY();
+        System.out.println("pressed");
         board.revalidate();
         board.repaint();
     }
