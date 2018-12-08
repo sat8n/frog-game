@@ -48,6 +48,8 @@ class gameStart implements ActionListener {
         r.remove(r.highscore);
         r.add(r.board);
         r.board.requestFocusInWindow();
+        r.board.posx = r.board.initialX;
+        r.board.posy = r.board.initialY;
         r.revalidate();
         r.repaint();
     }

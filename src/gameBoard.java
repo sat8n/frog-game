@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class gameBoard extends JPanel {
     final int width = 55, height = 35;
-    int posx = (((378-323)/2) + 323) - (width/2);
-    int posy = (((604-556)/2) + 556) - (height/2);
+    int posx, initialX = (((378-323)/2) + 323) - (width/2);
+    int posy, initialY = (((604-556)/2) + 556) - (height/2);
     int[] startX = {80,105,120,105,80,65};
     int[] startY = {71,71,95,119,119,95};
     final int flyWidth = 10, flyHeight = 13;
