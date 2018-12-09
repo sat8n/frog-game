@@ -14,10 +14,6 @@ public class Frame extends JFrame {
         setTitle("test abstract");
         setBackground(new Color(215,234,255));
 
-        JLayeredPane testLayer = new JLayeredPane();
-        testLayer.setBounds(0,0,700,700);
-        testLayer.setLayout(new BorderLayout());
-
         screen = new Screen();
         screen.addKeyListener(new testHandler(this));
         screen.setFocusable(true);
