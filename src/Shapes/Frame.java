@@ -21,8 +21,8 @@ public class Frame extends JFrame {
         screen = new Screen();
         screen.addKeyListener(new testHandler(this));
         screen.setFocusable(true);
+        screen.addMouseListener(new frogBlaster(this));
         add(screen);
-        System.out.println("test");
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);
@@ -73,4 +73,29 @@ class testHandler implements KeyListener {
     }
     public void keyTyped(KeyEvent e) { }
     public void keyReleased(KeyEvent e) { }
+}
+
+class frogBlaster implements MouseListener {
+    Frame frame;
+
+    public frogBlaster(Frame f) {
+        this.frame = f;
+    }
+    public void mousePressed(MouseEvent e) {
+        // if X and Y of cursor is at a certain distance from the frog when it was pressed
+        // and there was a fly, then score += 1 and repaint()
+
+        // player can only click between current hexagon and the 2 side hexagons:
+        // left: (e.getX() <= this.frame.screen.frog.posx) && (e.getX() >= (this.frame.screen.frog.posx-86))
+        // right: (e.getX() >= this.frame.screen.frog.posx) && (e.getX() <= (this.frame.screen.frog.posx+132))
+        // restricting y to only go up: (e.getY() <= this.frame.screen.frog.posy) && (e.getY() >= (this.frame.screen.frog.posy-108))
+        if ( ( ((e.getX() <= this.frame.screen.frog.posx) && (e.getX() >= (this.frame.screen.frog.posx-86))) || ((e.getX() >= this.frame.screen.frog.posx) && (e.getX() <= (this.frame.screen.frog.posx+132))) ) && ((e.getY() <= this.frame.screen.frog.posy) && (e.getY() >= (this.frame.screen.frog.posy-108))) ) {
+            System.out.println(e.getX() + " " + e.getY());
+        }
+    }
+    public void mouseReleased(MouseEvent e) {
+    }
+    public void mouseEntered(MouseEvent e) {    }
+    public void mouseExited(MouseEvent e) {    }
+    public void mouseClicked(MouseEvent e) {    }
 }
