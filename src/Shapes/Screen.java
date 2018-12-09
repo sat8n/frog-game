@@ -21,7 +21,7 @@ public class Screen extends JPanel {
         top.add(quit, BorderLayout.CENTER);
 
         score = new JLabel("Score: 0", SwingConstants.CENTER);
-        score.setFont(new Font("Arial", Font.BOLD, 15));
+        score.setFont(new Font("Arial", Font.BOLD, 18));
         top.add(score, BorderLayout.EAST);
 
         top.setOpaque(false);
