@@ -21,11 +21,6 @@ public class screenStart extends JPanel {
         start_game.setBackground(Color.white);
         buttonsStart.add(start_game);
 
-        settings = new JButton("settings");
-        settings.setForeground(Color.black);
-        settings.setBackground(Color.white);
-        buttonsStart.add(settings);
-
         highscore = new JButton("highscore");
         highscore.setForeground(Color.black);
         highscore.setBackground(Color.white);

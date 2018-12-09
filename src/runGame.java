@@ -13,7 +13,6 @@ public class runGame extends JFrame {
         startPanel = new screenStart();
         add(startPanel);
         startPanel.start_game.addActionListener(new toInfo(this));
-        startPanel.settings.addActionListener(new toSettings(this));
         startPanel.highscore.addActionListener(new toHighscore(this));
 
         highscore = new highscorePage();
