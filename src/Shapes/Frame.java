@@ -82,15 +82,35 @@ class frogBlaster implements MouseListener {
         this.frame = f;
     }
     public void mousePressed(MouseEvent e) {
-        // if X and Y of cursor is at a certain distance from the frog when it was pressed
-        // and there was a fly, then score += 1 and repaint()
+        int[] flyPosLog = new int[this.frame.screen.board.flyLog.size()];
+        // we now have the positions of the flies logged
+        for (int i = 0; i < this.frame.screen.board.flyLog.size(); i ++) {
+            flyPosLog[i] = (Integer) this.frame.screen.board.flyLog.get(i);
+        }
 
         // player can only click between current hexagon and the 2 side hexagons:
         // left: (e.getX() <= this.frame.screen.frog.posx) && (e.getX() >= (this.frame.screen.frog.posx-86))
         // right: (e.getX() >= this.frame.screen.frog.posx) && (e.getX() <= (this.frame.screen.frog.posx+132))
         // restricting y to only go up: (e.getY() <= this.frame.screen.frog.posy) && (e.getY() >= (this.frame.screen.frog.posy-108))
         if ( ( ((e.getX() <= this.frame.screen.frog.posx) && (e.getX() >= (this.frame.screen.frog.posx-86))) || ((e.getX() >= this.frame.screen.frog.posx) && (e.getX() <= (this.frame.screen.frog.posx+132))) ) && ((e.getY() <= this.frame.screen.frog.posy) && (e.getY() >= (this.frame.screen.frog.posy-108))) ) {
-            System.out.println(e.getX() + " " + e.getY());
+
+            for (int i = 0; i < flyPosLog.length; i++) {
+                // when player clicks on fly
+                // player can click 10 pixels to the left of the fly or 10 pixels to the right
+                // left:
+                // right: ( e.getX() >= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[0]) )
+                //        ( e.getX() <= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[0]+10) )
+                // and 10 pixels up and down
+                // up: ( e.getY() >= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[1] )
+                //     ( e.getY() <= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[1]+10 )
+                // down:
+                if ( (( e.getX() >= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[0]) ) && ( e.getX() <= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[0]+10) )) && (( e.getY() >= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[1] ) && ( e.getY() <= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[1]+10 ) ) )) ) {
+                    this.frame.screen.flyPoints += 5; // player gets 5 points for each fly
+                    this.frame.screen.score.setText("Score: " + this.frame.screen.flyPoints);
+                    this.frame.screen.repaint();
+                }
+            }
+
         }
     }
     public void mouseReleased(MouseEvent e) {

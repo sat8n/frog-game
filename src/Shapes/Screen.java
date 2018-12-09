@@ -7,6 +7,7 @@ public class Screen extends JPanel {
     Hexagons board;
     Frog frog;
     JLabel score; // so that we can use setText to change the score
+    int flyPoints = 0;
 
     public Screen() {
         setBackground(new Color(215,234,255));
