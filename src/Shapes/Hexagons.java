@@ -2,7 +2,6 @@ package Shapes;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Hexagons extends Shape {
@@ -13,6 +12,7 @@ public class Hexagons extends Shape {
     ArrayList<int[]> flyPosition;
     Random r = new Random();
     int randomFly;
+    ArrayList flyLog;
 
     public Hexagons() {
         this.calcX = new ArrayList<>();
@@ -173,10 +173,12 @@ public class Hexagons extends Shape {
         this.flyPosition.add(getFlyXY());
 
         // bzz bzz
+        flyLog = new ArrayList<>();
         g.setColor(new Color(64,64,64));
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 7; i++) { // we want 7 flies to appear on the board (if the player picked easy difficulty)
             randomFly = r.nextInt(114);
             g.fillOval(flyPosition.get(randomFly)[0], flyPosition.get(randomFly)[1], flyWidth, flyHeight);
+            flyLog.add(randomFly);
         }
     }
 
