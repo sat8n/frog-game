@@ -9,7 +9,6 @@ import java.awt.event.MouseListener;
 
 public class Frame extends JFrame {
     Screen screen;
-    Interactive interactive;
 
     public Frame() {
         setTitle("test abstract");
@@ -23,6 +22,7 @@ public class Frame extends JFrame {
         screen.addKeyListener(new testHandler(this));
         screen.setFocusable(true);
         add(screen);
+        System.out.println("test");
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);
@@ -48,13 +48,12 @@ class testHandler implements KeyListener {
             if (this.frame.screen.frog.posy > 105) {
                 this.frame.screen.frog.posy -= 54;
             }
-            this.frame.screen.repaint(this.frame.screen.frog.posx, this.frame.screen.frog.posy, 60,486);
+            this.frame.screen.repaint();
         }
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
             if (this.frame.screen.frog.posy < 456) {
                 this.frame.screen.frog.posy += 54;
             }
-            //this.frame.screen.repaint(this.frame.screen.frog.posx, this.frame.screen.frog.posy, 60,this.frame.screen.frog.posy+486);
             this.frame.screen.repaint();
         }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
@@ -62,7 +61,7 @@ class testHandler implements KeyListener {
                 this.frame.screen.frog.posx -= 43;
                 this.frame.screen.frog.posy -= 27;
             }
-            this.frame.screen.repaint(this.frame.screen.frog.posx, this.frame.screen.frog.posy, 516,81);
+            this.frame.screen.repaint();
         }
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
             if (this.frame.screen.frog.posx < 581 && this.frame.screen.frog.posy >= 78) {
