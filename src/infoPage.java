@@ -52,7 +52,6 @@ class gameStart implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
-        r.remove(r.settings);
         r.remove(r.highscore);
         r.remove(r.instructions);
         r.add(r.board);

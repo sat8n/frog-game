@@ -4,7 +4,6 @@ import java.awt.*;
 public class runGame extends JFrame {
     screenStart startPanel;
     gameBoard board;
-    settingsPage settings;
     highscorePage highscore;
     infoPage instructions;
 
@@ -16,9 +15,6 @@ public class runGame extends JFrame {
         startPanel.start_game.addActionListener(new toInfo(this));
         startPanel.settings.addActionListener(new toSettings(this));
         startPanel.highscore.addActionListener(new toHighscore(this));
-
-        settings = new settingsPage();
-        settings.back.addActionListener(new fromSettings(this));
 
         highscore = new highscorePage();
         highscore.back.addActionListener(new fromHighscore(this));

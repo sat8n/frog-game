@@ -253,7 +253,6 @@ class fromGame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         r.remove(r.highscore);
-        r.remove(r.settings);
         r.remove(r.board);
         r.add(r.startPanel);
         r.revalidate();

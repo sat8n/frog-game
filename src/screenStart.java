@@ -44,7 +44,6 @@ class toInfo implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
-        r.remove(r.settings);
         r.remove(r.board);
         r.remove(r.highscore);
         r.add(r.instructions);
@@ -64,7 +63,6 @@ class toSettings implements ActionListener {
         r.remove(r.startPanel);
         r.remove(r.board);
         r.remove(r.highscore);
-        r.add(r.settings);
         r.revalidate();
         r.repaint();
     }
@@ -80,7 +78,6 @@ class toHighscore implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
         r.remove(r.board);
-        r.remove(r.settings);
         r.add(r.highscore);
         r.revalidate();
         r.repaint();
