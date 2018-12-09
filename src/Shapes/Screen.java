@@ -6,7 +6,6 @@ import java.awt.*;
 public class Screen extends JPanel {
     Hexagons board;
     Frog frog;
-    Tongue tongue;
     JLabel score; // so that we can use setText to change the score
 
     public Screen() {
@@ -29,14 +28,12 @@ public class Screen extends JPanel {
         add(top, BorderLayout.NORTH);
 
         board = new Hexagons();
-        tongue = new Tongue();
         frog = new Frog();
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         board.paintComponent(g);
-        tongue.paintComponent(g);
         frog.paintComponent(g);
     }
 }
