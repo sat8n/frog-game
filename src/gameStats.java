@@ -1,5 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -61,7 +65,16 @@ class submit implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        r.stats.nicknameInput.getText();
+        String nickname = r.stats.nicknameInput.getText().trim();
+        String flies = "" + r.stats.points;
+        try(FileWriter f = new FileWriter("stats.txt", true);
+            BufferedWriter b = new BufferedWriter(f);
+            PrintWriter out = new PrintWriter(b)) {
+            out.println(nickname);
+            out.println(flies);
+        } catch (IOException ep) {
+            System.out.println("Unable to save score");
+        }
 
         r.remove(r.board);
         r.remove(r.instructions);

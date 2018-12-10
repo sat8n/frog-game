@@ -1,5 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 
 public class runGame extends JFrame {
     screenStart startPanel;
@@ -31,7 +38,14 @@ public class runGame extends JFrame {
 
         stats = new gameStats();
         stats.submit.addActionListener(new submit(this));
-        //add(stats);
+
+        List<String> highscore = Arrays.asList("Player 1", "0");
+        Path file = Paths.get("stats.txt");
+        try {
+            Files.write(file, highscore, Charset.forName("UTF-8"));
+        } catch (IOException ex) {
+            System.out.println("Unable to save score");
+        }
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);

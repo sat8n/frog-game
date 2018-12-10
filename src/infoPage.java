@@ -70,7 +70,7 @@ public class infoPage extends JPanel {
 
 class gameStart implements ActionListener {
     runGame r;
-    flyBlaster b;
+    Timer timer;
 
     public gameStart(runGame r) {
         this.r = r;
@@ -90,7 +90,7 @@ class gameStart implements ActionListener {
         r.stats.points = 0;
 
         // 30 second timer for game
-        Timer timer = new Timer(30000, new ActionListener() {
+        timer = new Timer(30000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 r.remove(r.highscore);
@@ -106,6 +106,7 @@ class gameStart implements ActionListener {
 
                 r.revalidate();
                 r.repaint();
+                timer.stop();
             }
         });
         timer.start();
