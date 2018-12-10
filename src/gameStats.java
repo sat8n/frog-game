@@ -4,7 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class gameStats extends JPanel {
+    JLabel frogMoves;
     JButton submit;
+    int moves;
 
     public gameStats() {
         setLayout(new GridLayout(3,1));
@@ -19,7 +21,7 @@ public class gameStats extends JPanel {
 
         JLabel row1 = new JLabel("Number of times frog moved: ", SwingConstants.CENTER);
         row1.setFont(new Font("Arial", Font.PLAIN, 15));
-        JLabel frogMoves = new JLabel("10", SwingConstants.CENTER);
+        frogMoves = new JLabel("10", SwingConstants.CENTER);
         frogMoves.setFont(new Font("Arial", Font.PLAIN, 15));
 
         JLabel row2 = new JLabel("Number of flies collected: ", SwingConstants.CENTER);

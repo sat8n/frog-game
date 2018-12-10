@@ -13,7 +13,7 @@ public class runGame extends JFrame {
         setBackground(new Color(215,234,255));
 
         startPanel = new screenStart();
-        //add(startPanel);
+        add(startPanel);
         startPanel.start_game.addActionListener(new toInfo(this));
         startPanel.highscore.addActionListener(new toHighscore(this));
 
@@ -31,7 +31,7 @@ public class runGame extends JFrame {
 
         stats = new gameStats();
         stats.submit.addActionListener(new submit(this));
-        add(stats);
+        //add(stats);
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);
