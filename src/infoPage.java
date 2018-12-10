@@ -70,6 +70,7 @@ public class infoPage extends JPanel {
 
 class gameStart implements ActionListener {
     runGame r;
+    flyBlaster b;
 
     public gameStart(runGame r) {
         this.r = r;
@@ -86,9 +87,10 @@ class gameStart implements ActionListener {
         r.board.frog.posy = r.board.frog.initialY;
         r.board.score.setText("Score: 0");
         r.stats.moves = 0;
+        r.stats.points = 0;
 
         // 30 second timer for game
-        Timer timer = new Timer(15000, new ActionListener() {
+        Timer timer = new Timer(30000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 r.remove(r.highscore);
@@ -98,6 +100,7 @@ class gameStart implements ActionListener {
                 r.add(r.stats);
 
                 r.stats.frogMoves.setText("" + r.stats.moves);
+                r.stats.fliesCaught.setText("" + r.stats.points);
 
                 r.revalidate();
                 r.repaint();

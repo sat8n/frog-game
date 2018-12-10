@@ -4,9 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class gameStats extends JPanel {
-    JLabel frogMoves;
+    JLabel frogMoves, fliesCaught;
     JButton submit;
-    int moves;
+    int moves, points;
 
     public gameStats() {
         setLayout(new GridLayout(3,1));
@@ -26,7 +26,7 @@ public class gameStats extends JPanel {
 
         JLabel row2 = new JLabel("Number of flies collected: ", SwingConstants.CENTER);
         row2.setFont(new Font("Arial", Font.PLAIN, 15));
-        JLabel fliesCaught = new JLabel("35", SwingConstants.CENTER);
+        fliesCaught = new JLabel("35", SwingConstants.CENTER);
         fliesCaught.setFont(new Font("Arial", Font.PLAIN, 15));
 
         JLabel row3 = new JLabel("Please enter nickname: ", SwingConstants.CENTER);
