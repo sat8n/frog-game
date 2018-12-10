@@ -4,6 +4,7 @@ import java.awt.event.MouseListener;
 public class flyBlaster implements MouseListener {
     runGame frame;
 
+    // frog eats flies for breakfast
     public flyBlaster(runGame f) {
         this.frame = f;
     }
@@ -18,7 +19,15 @@ public class flyBlaster implements MouseListener {
         // left: (e.getX() <= this.frame.screen.frog.posx) && (e.getX() >= (this.frame.screen.frog.posx-86))
         // right: (e.getX() >= this.frame.screen.frog.posx) && (e.getX() <= (this.frame.screen.frog.posx+132))
         // restricting y to only go up: (e.getY() <= this.frame.screen.frog.posy) && (e.getY() >= (this.frame.screen.frog.posy-108))
-        if ( ( ((e.getX() <= this.frame.board.frog.posx) && (e.getX() >= (this.frame.board.frog.posx-86))) || ((e.getX() >= this.frame.board.frog.posx) && (e.getX() <= (this.frame.board.frog.posx+132))) ) && ((e.getY() <= this.frame.board.frog.posy) && (e.getY() >= (this.frame.board.frog.posy-108))) ) {
+        // expanding hexagon range so it can eat below too:
+        // (e.getY() >= this.frame.board.frog.posy) && (e.getY() <= this.frame.board.frog.posy+54)
+        if ( ( ((e.getX() <= this.frame.board.frog.posx) && (e.getX() >= (this.frame.board.frog.posx-86)))
+                ||
+                ((e.getX() >= this.frame.board.frog.posx) && (e.getX() <= (this.frame.board.frog.posx+132))) )
+                &&
+                (((e.getY() <= this.frame.board.frog.posy) && (e.getY() >= (this.frame.board.frog.posy-108))) )
+                || ((e.getY() >= this.frame.board.frog.posy) && (e.getY() <= this.frame.board.frog.posy+54))
+        ) {
 
             for (int i = 0; i < flyPosLog.length; i++) {
                 // when player clicks on fly
