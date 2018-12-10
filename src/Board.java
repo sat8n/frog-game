@@ -1,10 +1,8 @@
-package Shapes;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Hexagons extends Shape {
+public class Board extends Shapes {
     final int flyWidth = 10, flyHeight = 13;
     int centerX, centerY, flyX, flyY;
     ArrayList<Integer> calcX, calcY, flyCalcX, flyCalcY;
@@ -14,7 +12,7 @@ public class Hexagons extends Shape {
     int randomFly;
     ArrayList flyLog;
 
-    public Hexagons() {
+    public Board() {
         this.calcX = new ArrayList<>();
         this.calcY = new ArrayList<>();
         this.frogPosition = new ArrayList<>();

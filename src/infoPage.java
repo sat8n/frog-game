@@ -52,13 +52,12 @@ class gameStart implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
-        r.remove(r.settings);
         r.remove(r.highscore);
         r.remove(r.instructions);
         r.add(r.board);
         r.board.requestFocusInWindow();
-        r.board.posx = r.board.initialX;
-        r.board.posy = r.board.initialY;
+        r.board.frog.posx = r.board.frog.initialX;
+        r.board.frog.posy = r.board.frog.initialY;
         r.revalidate();
         r.repaint();
     }

@@ -2,57 +2,38 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 class frogListener implements KeyListener {
-    gameBoard board;
+    runGame frame;
 
-    public frogListener(gameBoard b) {
-        this.board = b;
+    public frogListener(runGame f) {
+        this.frame = f;
     }
 
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            if (board.posx > 63) {
-                board.posx -= 43;
-                board.posy -= 27;
-            }
-            board.repaint();
-        }
-
-        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if (board.posx < 575) {
-                board.posx += 43;
-                board.posy -= 27;
-            }
-            board.repaint();
-        }
-
         if (e.getKeyCode() == KeyEvent.VK_UP) {
-            if (board.posy > 80) {
-                /**
-                 * if we want to go up, then we want to look at the y value
-                 * we know the x value stays the same, but the y value changes
-                 * e.g. [x,510] are all in one column
-                 * in order to move forward, we need to get the current position
-                 * then compare it to the other y values in frogPosition
-                 * it has a maximum y distance of 53
-                 */
-                int diffY;
-                for (int i = 0; i < 114; i++) {
-                    if (board.posx == board.frogPosition.get(i)[0]) {
-                        diffY = board.posy - board.frogPosition.get(i)[1];
-                        if (diffY < 100 && diffY > 0) {
-                            board.posy = board.frogPosition.get(i)[1];
-                        }
-                    }
-                }
+            if (this.frame.board.frog.posy > 105) {
+                this.frame.board.frog.posy -= 54;
             }
-            board.repaint();
+            this.frame.board.repaint();
         }
-
         if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            if (board.posy < 563) {
-                board.posy += 54;
+            if (this.frame.board.frog.posy < 456) {
+                this.frame.board.frog.posy += 54;
             }
-            board.repaint();
+            this.frame.board.repaint();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+            if (this.frame.board.frog.posx > 65 && this.frame.board.frog.posy >= 78) {
+                this.frame.board.frog.posx -= 43;
+                this.frame.board.frog.posy -= 27;
+            }
+            this.frame.board.repaint();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            if (this.frame.board.frog.posx < 581 && this.frame.board.frog.posy >= 78) {
+                this.frame.board.frog.posx += 43;
+                this.frame.board.frog.posy -= 27;
+            }
+            this.frame.board.repaint();
         }
     }
     public void keyTyped(KeyEvent e) { }

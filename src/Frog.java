@@ -1,8 +1,6 @@
-package Shapes;
-
 import java.awt.*;
 
-public class Frog extends Shape {
+public class Frog extends Shapes {
     int posx, posy;
     final int initialX;
     final int initialY;

@@ -4,21 +4,17 @@ import java.awt.*;
 public class runGame extends JFrame {
     screenStart startPanel;
     gameBoard board;
-    settingsPage settings;
     highscorePage highscore;
     infoPage instructions;
 
     public runGame() {
         setTitle("Frogger 1705063");
+        setBackground(new Color(215,234,255));
 
         startPanel = new screenStart();
         add(startPanel);
         startPanel.start_game.addActionListener(new toInfo(this));
-        startPanel.settings.addActionListener(new toSettings(this));
         startPanel.highscore.addActionListener(new toHighscore(this));
-
-        settings = new settingsPage();
-        settings.back.addActionListener(new fromSettings(this));
 
         highscore = new highscorePage();
         highscore.back.addActionListener(new fromHighscore(this));
@@ -27,7 +23,10 @@ public class runGame extends JFrame {
         instructions.start.addActionListener(new gameStart(this));
 
         board = new gameBoard();
-        board.backtoHome.addActionListener(new fromGame(this));
+        board.quit.addActionListener(new fromGame(this));
+        board.addKeyListener(new frogListener(this));
+        board.setFocusable(true);
+        board.addMouseListener(new flyBlaster(this));
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);
