@@ -10,11 +10,11 @@
 	- [X] Use this array of x,y coordinates to check where the user can go. ~Say, when the left arrow key is pressed, the program checks the position of the user and then checks where the closest, left-most hexagon is (e.g. no more than 10 pixels to the left, on the x-axis, from the user's position). If user wants to go left or right, they'll always land on the north-west/east hexagon. If they want to go to a hexagon that is south-west/east, then they'll have to go left/right then down.~ The frog's position now changes by subtracting or adding to their current x,y coordinates.
 - [X] Reset position of frog when the user wins/quits game and then starts a new one
 - [X] Separate the frogListener to a new class file
-- [ ] If there's time, create a pixel sprite for the frog
+- [X] If there's time, create a pixel sprite for the frog
 #### flies
 - [X] Create "flies" on the hexagon tiles. Their positions need to be randomised every time the user plays a new game.
 - [X] Create MouseListener for frog's tongue so that it can "capture" the flies
-- [ ] If there's time, create pixel sprites for the flies
+- [X] If there's time, create pixel sprites for the flies
 #### board
 - [X] ~Make the code for painting hexagons neater~
 #### game
