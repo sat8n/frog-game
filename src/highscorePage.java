@@ -36,7 +36,7 @@ class fromHighscore implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        //r.remove(r.board);
+        r.remove(r.board);
         r.remove(r.instructions);
         r.remove(r.highscore);
         r.add(r.startPanel);

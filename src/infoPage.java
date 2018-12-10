@@ -94,7 +94,8 @@ class gameStart implements ActionListener {
                 r.remove(r.highscore);
                 r.remove(r.board);
                 r.remove(r.instructions);
-                r.add(r.startPanel);
+                r.remove(r.startPanel);
+                r.add(r.stats);
                 r.revalidate();
                 r.repaint();
             }

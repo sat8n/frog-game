@@ -6,13 +6,14 @@ public class runGame extends JFrame {
     gameBoard board;
     highscorePage highscore;
     infoPage instructions;
+    gameStats stats;
 
     public runGame() {
         setTitle("Frogger 1705063");
         setBackground(new Color(215,234,255));
 
         startPanel = new screenStart();
-        add(startPanel);
+        //add(startPanel);
         startPanel.start_game.addActionListener(new toInfo(this));
         startPanel.highscore.addActionListener(new toHighscore(this));
 
@@ -27,6 +28,10 @@ public class runGame extends JFrame {
         board.addKeyListener(new frogListener(this));
         board.setFocusable(true);
         board.addMouseListener(new flyBlaster(this));
+
+        stats = new gameStats();
+        stats.backHome.addActionListener(new backToHome(this));
+        add(stats);
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);
