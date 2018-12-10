@@ -9,6 +9,7 @@ public class runGame extends JFrame {
 
     public runGame() {
         setTitle("Frogger 1705063");
+        setBackground(new Color(215,234,255));
 
         startPanel = new screenStart();
         add(startPanel);
@@ -21,8 +22,8 @@ public class runGame extends JFrame {
         instructions = new infoPage();
         instructions.start.addActionListener(new gameStart(this));
 
-        board = new gameBoard();
-        board.backtoHome.addActionListener(new fromGame(this));
+        //board = new gameBoard();
+        //board.backtoHome.addActionListener(new fromGame(this));*/
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);

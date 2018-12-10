@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class screenStart extends JPanel {
-    JButton start_game, settings, highscore;
+    JButton start_game, highscore;
 
     public screenStart() {
         setBackground(new Color(215,234,255));
@@ -39,25 +39,9 @@ class toInfo implements ActionListener {
     }
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
-        r.remove(r.board);
+        //r.remove(r.board);
         r.remove(r.highscore);
         r.add(r.instructions);
-        r.revalidate();
-        r.repaint();
-    }
-}
-
-class toSettings implements ActionListener {
-    runGame r;
-
-    public toSettings(runGame r) {
-        this.r = r;
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        r.remove(r.startPanel);
-        r.remove(r.board);
-        r.remove(r.highscore);
         r.revalidate();
         r.repaint();
     }
@@ -72,7 +56,8 @@ class toHighscore implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
-        r.remove(r.board);
+        //r.remove(r.board);
+        r.remove(r.instructions);
         r.add(r.highscore);
         r.revalidate();
         r.repaint();
