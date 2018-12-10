@@ -22,8 +22,11 @@ public class runGame extends JFrame {
         instructions = new infoPage();
         instructions.start.addActionListener(new gameStart(this));
 
-        //board = new gameBoard();
-        //board.backtoHome.addActionListener(new fromGame(this));*/
+        board = new gameBoard();
+        board.quit.addActionListener(new fromGame(this));
+        board.addKeyListener(new frogListener(this));
+        board.setFocusable(true);
+        board.addMouseListener(new flyBlaster(this));
 
         setPreferredSize(new Dimension(700,700));
         setResizable(false);
