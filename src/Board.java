@@ -172,10 +172,13 @@ public class Board extends Shapes {
 
         // bzz bzz
         flyLog = new ArrayList<>();
-        g.setColor(new Color(64,64,64));
         for (int i = 0; i < 7; i++) { // we want 7 flies to appear on the board (if the player picked easy difficulty)
             randomFly = r.nextInt(114);
+            g.setColor(new Color(64,64,64));
             g.fillOval(flyPosition.get(randomFly)[0], flyPosition.get(randomFly)[1], flyWidth, flyHeight);
+            g.setColor(new Color(109,109,109));
+            g.fillRoundRect((flyPosition.get(randomFly)[0]-5), (flyPosition.get(randomFly)[1]+4), 7,5,2,2);
+            g.fillRoundRect((flyPosition.get(randomFly)[0]+9), (flyPosition.get(randomFly)[1]+4), 7,5,2,2);
             flyLog.add(randomFly);
         }
     }
