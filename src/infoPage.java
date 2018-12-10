@@ -1,17 +1,22 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class infoPage extends JPanel {
     JButton start;
+    BufferedImage example;
 
     public infoPage() {
         setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
         setBackground(new Color(215,234,255));
 
         JPanel instructions = new JPanel(new GridLayout(3,1));
-        instructions.setBackground(new Color(215,234,255));
+        instructions.setOpaque(false);
 
         JLabel infoTitle = new JLabel("Instructions", SwingConstants.CENTER);
         infoTitle.setFont(new Font("Arial", Font.BOLD, 30));
@@ -21,16 +26,29 @@ public class infoPage extends JPanel {
         start.setBackground(new Color(215,234,255));
 
         String infoText = "<html>" +
-                "1. Use the left and right arrow keys to move left and right" +
+                "1. Use the arrow keys to move around the board." +
                 "<br/>" +
-                "2. This is basically a game of frogger, get from one side to the other safely" +
+                "2. Click on the flies when the frog is in range." +
                 "<br/>" +
-                "3. Good luck!" +
+                "3. The frog's \"tongue\" can reach the hexagons surrounding the frog." +
+                "<br/>" +
+                "The image shows the frog's range. Its range is within the poorly drawn yellow blob." +
+                "<br/>" +
+                "4. Catch as many flies as you can before the timer runs out." +
                 "<br/>" +
                 "<br/>" +
                 "</html>";
         JLabel info = new JLabel(infoText,SwingConstants.CENTER);
         info.setFont(new Font("Arial", Font.PLAIN, 17));
+
+        JLabel errorText = new JLabel("Unable to load image", SwingConstants.CENTER);
+        errorText.setFont(new Font("Arial", Font.ITALIC, 17));
+        errorText.setForeground(Color.red);
+        try {
+            example = ImageIO.read(new File("Screenshots/Example.PNG"));
+        } catch (IOException ex) {
+            instructions.add(errorText);
+        }
 
         instructions.add(infoTitle);
         instructions.add(info);
@@ -41,6 +59,11 @@ public class infoPage extends JPanel {
         add(Box.createRigidArea(new Dimension(0,100)));
 
         setOpaque(true);
+    }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(example, 400,0, 300,300,this);
     }
 }
 
