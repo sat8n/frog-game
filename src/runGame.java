@@ -30,7 +30,7 @@ public class runGame extends JFrame {
         board.addMouseListener(new flyBlaster(this));
 
         stats = new gameStats();
-        stats.backHome.addActionListener(new backToHome(this));
+        stats.submit.addActionListener(new submit(this));
         add(stats);
 
         setPreferredSize(new Dimension(700,700));
