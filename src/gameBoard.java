@@ -7,7 +7,6 @@ public class gameBoard extends JPanel {
     Board hexagons;
     Frog frog;
     JLabel score; // so that we can use setText to change the score
-    int flyPoints = 0;
     JButton quit;
 
     public gameBoard() {

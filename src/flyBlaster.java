@@ -3,6 +3,7 @@ import java.awt.event.MouseListener;
 
 public class flyBlaster implements MouseListener {
     runGame frame;
+    int flyPoints;
 
     // frog eats flies for breakfast
     public flyBlaster(runGame f) {
@@ -40,16 +41,16 @@ public class flyBlaster implements MouseListener {
                 //     ( e.getY() <= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[1]+10 )
                 // down:
                 if ( (( e.getX() >= (this.frame.board.hexagons.flyPosition.get(flyPosLog[i])[0]) ) && ( e.getX() <= (this.frame.board.hexagons.flyPosition.get(flyPosLog[i])[0]+10) )) && (( e.getY() >= (this.frame.board.hexagons.flyPosition.get(flyPosLog[i])[1] ) && ( e.getY() <= (this.frame.board.hexagons.flyPosition.get(flyPosLog[i])[1]+10 ) ) )) ) {
-                    this.frame.board.flyPoints += 5; // player gets 5 points for each fly
-                    this.frame.board.score.setText("Score: " + this.frame.board.flyPoints);
+                    flyPoints += 5; // player gets 5 points for each fly
+                    this.frame.board.score.setText("Score: " + flyPoints);
                     this.frame.board.repaint();
+                    System.out.println(flyPoints);
                 }
             }
 
         }
     }
-    public void mouseReleased(MouseEvent e) {
-    }
+    public void mouseReleased(MouseEvent e) { }
     public void mouseEntered(MouseEvent e) {    }
     public void mouseExited(MouseEvent e) {    }
     public void mouseClicked(MouseEvent e) { }

@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class infoPage extends JPanel {
     JButton start;
@@ -79,8 +81,19 @@ class gameStart implements ActionListener {
         r.remove(r.instructions);
         r.add(r.board);
         r.board.requestFocusInWindow();
+
         r.board.frog.posx = r.board.frog.initialX;
         r.board.frog.posy = r.board.frog.initialY;
+        r.board.score.setText("Score: 0");
+
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                JOptionPane.showMessageDialog(null, "end game");
+            }
+        }, 10000);
+
         r.revalidate();
         r.repaint();
     }
