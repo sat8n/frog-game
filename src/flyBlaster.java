@@ -26,7 +26,7 @@ public class flyBlaster implements MouseListener {
                 ((e.getX() >= this.frame.board.frog.posx) && (e.getX() <= (this.frame.board.frog.posx+132))) )
                 &&
                 (((e.getY() <= this.frame.board.frog.posy) && (e.getY() >= (this.frame.board.frog.posy-108))) )
-                || ((e.getY() >= this.frame.board.frog.posy) && (e.getY() <= this.frame.board.frog.posy+54))
+                || ((e.getY() >= this.frame.board.frog.posy) && (e.getY() <= this.frame.board.frog.posy+80))
         ) {
 
             for (int i = 0; i < flyPosLog.length; i++) {
