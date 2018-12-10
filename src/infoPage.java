@@ -6,8 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
+import javax.swing.Timer;
 
 public class infoPage extends JPanel {
     JButton start;
@@ -71,10 +70,12 @@ public class infoPage extends JPanel {
 
 class gameStart implements ActionListener {
     runGame r;
+    flyBlaster b;
 
     public gameStart(runGame r) {
         this.r = r;
     }
+
     public void actionPerformed(ActionEvent e) {
         r.remove(r.startPanel);
         r.remove(r.highscore);
@@ -86,13 +87,19 @@ class gameStart implements ActionListener {
         r.board.frog.posy = r.board.frog.initialY;
         r.board.score.setText("Score: 0");
 
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
+        // 30 second timer for game
+        Timer timer = new Timer(30000, new ActionListener() {
             @Override
-            public void run() {
-                JOptionPane.showMessageDialog(null, "end game");
+            public void actionPerformed(ActionEvent e) {
+                r.remove(r.highscore);
+                r.remove(r.board);
+                r.remove(r.instructions);
+                r.add(r.startPanel);
+                r.revalidate();
+                r.repaint();
             }
-        }, 10000);
+        });
+        timer.start();
 
         r.revalidate();
         r.repaint();
