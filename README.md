@@ -22,7 +22,7 @@
 - [X] Separate the JPanels into their own classes to make the code neater
 - [X] Create a JPanel for the highscore page
 - [X] Create a timer for the game - the foundation could be gameplay for 30 seconds
-	- [] Expand on timer - how fast can the player collect flies in 30 seconds (10 flies + easy difficulty), 20 seconds (7 flies + medium difficulty), and 10 seconds (5 flies + hard difficulty)
+	- [ ] Expand on timer - how fast can the player collect flies in 30 seconds (10 flies + easy difficulty), 20 seconds (7 flies + medium difficulty), and 10 seconds (5 flies + hard difficulty)
 - [ ] Search for a way to log in the scores of players (i.e. get the player to enter their 'nickname' at the end of the game and record it with their score) - since this would probably use a text field, alpha-numeric characters should only be entered (or an exception could be thrown otherwise)
 ### report
 - [ ] Clean up the code and make it neater
