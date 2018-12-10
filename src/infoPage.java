@@ -101,6 +101,8 @@ class gameStart implements ActionListener {
 
                 r.stats.frogMoves.setText("" + r.stats.moves);
                 r.stats.fliesCaught.setText("" + r.stats.points);
+                r.stats.nicknameInput.setText("");
+                JOptionPane.showMessageDialog(null, "Timer has ended");
 
                 r.revalidate();
                 r.repaint();

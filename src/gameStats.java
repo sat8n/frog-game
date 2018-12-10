@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 public class gameStats extends JPanel {
     JLabel frogMoves, fliesCaught;
+    JTextField nicknameInput;
     JButton submit;
     int moves, points;
 
@@ -31,7 +32,7 @@ public class gameStats extends JPanel {
 
         JLabel row3 = new JLabel("Please enter nickname: ", SwingConstants.CENTER);
         row3.setFont(new Font("Arial", Font.PLAIN, 15));
-        JTextField nicknameInput = new JTextField("", 10);
+        nicknameInput = new JTextField("", 10);
         nicknameInput.setFont(new Font("Arial", Font.PLAIN, 15));
 
         statistics.add(row1);
@@ -60,11 +61,14 @@ class submit implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+        r.stats.nicknameInput.getText();
+
         r.remove(r.board);
         r.remove(r.instructions);
         r.remove(r.highscore);
         r.remove(r.stats);
         r.add(r.startPanel);
+
         r.revalidate();
         r.repaint();
     }
