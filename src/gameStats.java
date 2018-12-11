@@ -76,6 +76,9 @@ class submit implements ActionListener {
             JOptionPane.showMessageDialog(null, "Unable to save score");
         }
 
+        String[] nameWithFlies = {nickname, flies};
+        r.highscore.model.addRow(nameWithFlies);
+
         r.remove(r.board);
         r.remove(r.instructions);
         r.remove(r.startPanel);
