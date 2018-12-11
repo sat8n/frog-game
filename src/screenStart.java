@@ -2,10 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class screenStart extends JPanel {
     JButton start_game, highscore;
@@ -59,19 +55,6 @@ class toHighscore implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        try {
-            BufferedReader b = new BufferedReader(new FileReader("stats.txt"));
-            String line = b.readLine();
-            while (line != null) {
-                System.out.println(line);
-                line = b.readLine();
-            }
-        } catch (FileNotFoundException eq) {
-            System.out.println("file not found");
-        } catch (IOException ex) {
-            System.out.println("rip");
-        }
-
         r.remove(r.startPanel);
         r.remove(r.board);
         r.remove(r.instructions);
