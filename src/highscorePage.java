@@ -1,11 +1,15 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class highscorePage extends JPanel {
     JButton back;
@@ -21,7 +25,7 @@ public class highscorePage extends JPanel {
         highscoreTop.setLayout(new BorderLayout(20,20));
         highscoreTop.setBackground(new Color(215,234,255));
 
-        JLabel highscoreTitle = new JLabel("Highscores", SwingConstants.CENTER);
+        JLabel highscoreTitle = new JLabel("Highscores: Top 10", SwingConstants.CENTER);
         highscoreTitle.setFont(new Font("Helvetica", Font.BOLD, 35));
         highscoreTop.add(highscoreTitle, BorderLayout.PAGE_END);
 
@@ -56,14 +60,26 @@ public class highscorePage extends JPanel {
 
         // creating table
         String[] columnNames = {"Nickname", "Score"};
-        table = new JTable(new DefaultTableModel(columnNames, (namesWithScores.size())/2));
+        table = new JTable(new DefaultTableModel(columnNames, 10));
         model = (DefaultTableModel) table.getModel();
         for (int i = 0; i < namesWithScores.size(); i++) {
             model.addRow(namesWithScores.get(i));
         }
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(table.getModel());
+        table.setRowSorter(sorter);
+        List<RowSorter.SortKey> sortKeys = new ArrayList<>(25);
+        sortKeys.add(new RowSorter.SortKey(1, SortOrder.DESCENDING));
+        sorter.setSortKeys(sortKeys);
 
-        table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-        scoreTable.add(table, BorderLayout.CENTER);
+        // setting column width
+        TableColumn column = null;
+        for (int i = 0; i < 2; i++) {
+            column = table.getColumnModel().getColumn(i);
+            column.setPreferredWidth(170);
+        }
+        table.setRowHeight(30);
+        table.setFont(new Font("Helvetica", Font.BOLD,20));
+        scoreTable.add(new JScrollPane(table), BorderLayout.CENTER);
 
         setOpaque(true);
     }
