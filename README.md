@@ -2,7 +2,7 @@
 **Deadline:** 11:59:59, Wednesday 12th December 2018
 
 ## To-do list
-- [ ] it's wednesday my dudes
+- [X] it's wednesday my dudes
 #### frog
 - [X] Restrict the frog's movement so that it moves to the coordinates of the hexagons, rather than moving freely 
 	- [X] Create 2 lists to hold x and y coordinates of the hexagons' center points - we only need to store 2 values each for x and y, as we only need these values to calculate the center of the hexagon
@@ -23,10 +23,10 @@
 - [X] Create a JPanel for the highscore page
 - [X] Create a timer for the game - the foundation could be gameplay for 30 seconds
 	- [ ] Expand on timer - how fast can the player collect flies in 30 seconds (10 flies + easy difficulty), 20 seconds (7 flies + medium difficulty), and 10 seconds (5 flies + hard difficulty)
-- [ ] Search for a way to log in the scores of players (i.e. get the player to enter their 'nickname' at the end of the game and record it with their score) - since this would probably use a text field, alpha-numeric characters should only be entered (or an exception could be thrown otherwise)
+- [X] Search for a way to log in the scores of players (i.e. get the player to enter their 'nickname' at the end of the game and record it with their score) - ~since this would probably use a text field, alpha-numeric characters should only be entered (or an exception could be thrown otherwise)~
 ### report
-- [ ] Clean up the code and make it neater
-- [ ] The program should contain small, relevant comments that briefly explain a piece of code
+- [X] Clean up the code and ~make it neater@
+- [X] The program should contain small, relevant comments that briefly explain a piece of code
 - [ ] Once the game is complete, the report needs to be written. This repository can be used to help write the report
 
 ## Your Task
