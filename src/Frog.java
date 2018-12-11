@@ -16,12 +16,15 @@ public class Frog extends Shapes {
         g.setColor(Color.pink);
         g.fillRect((this.posx+25), (this.posy-10), 5, 13);
         g.fillOval((this.posx+22), (this.posy-19), 10,10);
+
         // frog's body
         g.setColor(new Color(0,128,64));
         g.fillOval(this.posx, this.posy, this.width, this.height);
+
         // frog's mouth
         g.setColor(new Color(112,180,44));
         g.fillArc(this.posx, this.posy, this.width, 30, 43,90);
+
         // frog's weird seedy eyes
         g.setColor(Color.white);
         g.fillOval((this.posx+7), this.posy,14,14);

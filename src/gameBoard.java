@@ -1,10 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class gameBoard extends JPanel {
-    Board hexagons;
+    Hexagon hexagons;
     Frog frog;
     JLabel score; // so that we can use setText to change the score
     JButton quit;
@@ -17,41 +15,25 @@ public class gameBoard extends JPanel {
         top.setLayout(new BorderLayout(20,20));
 
         quit = new JButton("quit");
+        quit.setFont(new Font("Helvetica", Font.BOLD, 15));
         quit.setForeground(Color.black);
         quit.setBackground(Color.white);
         top.add(quit, BorderLayout.CENTER);
 
         score = new JLabel("Score: 0", SwingConstants.CENTER);
-        score.setFont(new Font("Arial", Font.BOLD, 18));
+        score.setFont(new Font("Helvetica", Font.BOLD, 18));
         top.add(score, BorderLayout.EAST);
 
         top.setOpaque(false);
         add(top, BorderLayout.NORTH);
 
-        hexagons = new Board();
+        hexagons = new Hexagon();
         frog = new Frog();
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        hexagons.paintComponent(g);
-        frog.paintComponent(g);
-    }
-}
-
-class fromGame implements ActionListener {
-    runGame r;
-
-    public fromGame(runGame r) {
-        this.r = r;
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        r.remove(r.highscore);
-        r.remove(r.board);
-        r.remove(r.instructions);
-        r.add(r.startPanel);
-        r.revalidate();
-        r.repaint();
+        hexagons.paintComponent(g); // painting the board of hexagons
+        frog.paintComponent(g); // painting the frog
     }
 }

@@ -10,17 +10,13 @@ public class flyBlaster implements MouseListener {
     }
     public void mousePressed(MouseEvent e) {
         int[] flyPosLog = new int[this.frame.board.hexagons.flyLog.size()];
-        // we now have the positions of the flies logged
+
+        // logging in the positions of the flies
         for (int i = 0; i < this.frame.board.hexagons.flyLog.size(); i ++) {
             flyPosLog[i] = (Integer) this.frame.board.hexagons.flyLog.get(i);
         }
 
-        // player can only click between current hexagon and the 2 side hexagons:
-        // left: (e.getX() <= this.frame.screen.frog.posx) && (e.getX() >= (this.frame.screen.frog.posx-86))
-        // right: (e.getX() >= this.frame.screen.frog.posx) && (e.getX() <= (this.frame.screen.frog.posx+132))
-        // restricting y to only go up: (e.getY() <= this.frame.screen.frog.posy) && (e.getY() >= (this.frame.screen.frog.posy-108))
-        // expanding hexagon range so it can eat below too:
-        // (e.getY() >= this.frame.board.frog.posy) && (e.getY() <= this.frame.board.frog.posy+54)
+        // setting frog's tongue range
         if ( ( ((e.getX() <= this.frame.board.frog.posx) && (e.getX() >= (this.frame.board.frog.posx-86)))
                 ||
                 ((e.getX() >= this.frame.board.frog.posx) && (e.getX() <= (this.frame.board.frog.posx+132))) )
@@ -30,19 +26,12 @@ public class flyBlaster implements MouseListener {
         ) {
 
             for (int i = 0; i < flyPosLog.length; i++) {
-                // when player clicks on fly
-                // player can click 10 pixels to the left of the fly or 10 pixels to the right
-                // left:
-                // right: ( e.getX() >= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[0]) )
-                //        ( e.getX() <= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[0]+10) )
-                // and 10 pixels up and down
-                // up: ( e.getY() >= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[1] )
-                //     ( e.getY() <= (this.frame.screen.board.flyPosition.get(flyPosLog[i])[1]+10 )
-                // down:
+
+                // when player clicks on fly (or close to fly)
+                // this is so that where the player clicks, the cursor coordinates don't have to be exact
                 if ( (( e.getX() >= (this.frame.board.hexagons.flyPosition.get(flyPosLog[i])[0]) ) && ( e.getX() <= (this.frame.board.hexagons.flyPosition.get(flyPosLog[i])[0]+10) )) && (( e.getY() >= (this.frame.board.hexagons.flyPosition.get(flyPosLog[i])[1] ) && ( e.getY() <= (this.frame.board.hexagons.flyPosition.get(flyPosLog[i])[1]+10 ) ) )) ) {
-                    //flyPoints += 5; // player gets 5 points for each fly
                     this.frame.stats.points += 5;
-                    this.frame.board.score.setText("Score: " + this.frame.stats.points);
+                    this.frame.board.score.setText("Score: " + this.frame.stats.points); // updating score as player catches flies
                     this.frame.board.repaint();
                 }
             }

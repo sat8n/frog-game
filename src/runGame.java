@@ -12,23 +12,28 @@ public class runGame extends JFrame {
         setTitle("Frogger 1705063");
         setBackground(new Color(215,234,255));
 
+        // JPanel for the start screen
         startPanel = new screenStart();
         add(startPanel);
         startPanel.start_game.addActionListener(new toInfo(this));
         startPanel.highscore.addActionListener(new toHighscore(this));
 
+        // JPanel for the highscore page
         highscore = new highscorePage();
-        highscore.back.addActionListener(new fromHighscore(this));
+        highscore.back.addActionListener(new backToStart(this));
 
+        // JPanel for the game's instructions
         instructions = new infoPage();
         instructions.start.addActionListener(new gameStart(this));
 
+        // JPanel for the game
         board = new gameBoard();
-        board.quit.addActionListener(new fromGame(this));
+        board.quit.addActionListener(new backToStart(this));
         board.addKeyListener(new frogListener(this));
         board.setFocusable(true);
         board.addMouseListener(new flyBlaster(this));
 
+        // JPanel for the gameplay statistics (shown after completing a round of the game)
         stats = new gameStats();
         stats.submit.addActionListener(new submit(this));
 

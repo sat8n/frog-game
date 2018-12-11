@@ -18,26 +18,26 @@ public class gameStats extends JPanel {
         setBackground(new Color(215,234,255));
 
         JLabel statsTitle = new JLabel("Gameplay Stats", SwingConstants.CENTER);
-        statsTitle.setFont(new Font("Arial", Font.BOLD, 35));
+        statsTitle.setFont(new Font("Helvetica", Font.BOLD, 35));
         add(statsTitle);
 
         JPanel statistics = new JPanel(new GridLayout(3,2));
         statistics.setBackground(new Color(215,234,255));
 
         JLabel row1 = new JLabel("Number of times frog moved: ", SwingConstants.CENTER);
-        row1.setFont(new Font("Arial", Font.PLAIN, 15));
-        frogMoves = new JLabel("10", SwingConstants.CENTER);
-        frogMoves.setFont(new Font("Arial", Font.PLAIN, 15));
+        row1.setFont(new Font("Helvetica", Font.BOLD, 17));
+        frogMoves = new JLabel("", SwingConstants.CENTER);
+        frogMoves.setFont(new Font("Helvetica", Font.BOLD, 17));
 
         JLabel row2 = new JLabel("Number of flies collected: ", SwingConstants.CENTER);
-        row2.setFont(new Font("Arial", Font.PLAIN, 15));
-        fliesCaught = new JLabel("35", SwingConstants.CENTER);
-        fliesCaught.setFont(new Font("Arial", Font.PLAIN, 15));
+        row2.setFont(new Font("Helvetica", Font.BOLD, 17));
+        fliesCaught = new JLabel("", SwingConstants.CENTER);
+        fliesCaught.setFont(new Font("Helvetica", Font.BOLD, 17));
 
         JLabel row3 = new JLabel("Please enter nickname: ", SwingConstants.CENTER);
-        row3.setFont(new Font("Arial", Font.PLAIN, 15));
+        row3.setFont(new Font("Helvetica", Font.BOLD, 17));
         nicknameInput = new JTextField("", 10);
-        nicknameInput.setFont(new Font("Arial", Font.PLAIN, 15));
+        nicknameInput.setFont(new Font("Helvetica", Font.BOLD, 17));
 
         statistics.add(row1);
         statistics.add(frogMoves);
@@ -48,7 +48,7 @@ public class gameStats extends JPanel {
         add(statistics);
 
         submit = new JButton("submit");
-        submit.setFont(new Font("Arial", Font.BOLD, 25));
+        submit.setFont(new Font("Helvetica", Font.BOLD, 25));
         submit.setForeground(Color.black);
         submit.setBackground(new Color(215,234,255));
         add(submit);
@@ -73,15 +73,15 @@ class submit implements ActionListener {
             out.println(nickname);
             out.println(flies);
         } catch (IOException ep) {
-            System.out.println("Unable to save score");
+            JOptionPane.showMessageDialog(null, "Unable to save score");
         }
 
         r.remove(r.board);
         r.remove(r.instructions);
-        r.remove(r.highscore);
+        r.remove(r.startPanel);
         r.remove(r.stats);
-        r.add(r.startPanel);
 
+        r.add(r.highscore);
         r.revalidate();
         r.repaint();
     }

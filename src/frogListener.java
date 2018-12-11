@@ -12,7 +12,7 @@ class frogListener implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             if (this.frame.board.frog.posy > 105) {
                 this.frame.board.frog.posy -= 54;
-                this.frame.stats.moves += 1;
+                this.frame.stats.moves += 1; // counting number of times frog moves for gameplay stats
             }
             this.frame.board.repaint();
         }

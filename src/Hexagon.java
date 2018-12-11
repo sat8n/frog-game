@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Board extends Shapes {
+public class Hexagon extends Shapes {
     final int flyWidth = 10, flyHeight = 13;
     int centerX, centerY, flyX, flyY;
     ArrayList<Integer> calcX, calcY, flyCalcX, flyCalcY;
@@ -12,7 +12,7 @@ public class Board extends Shapes {
     int randomFly;
     ArrayList flyLog;
 
-    public Board() {
+    public Hexagon() {
         this.calcX = new ArrayList<>();
         this.calcY = new ArrayList<>();
         this.frogPosition = new ArrayList<>();
@@ -22,6 +22,7 @@ public class Board extends Shapes {
         this.flyPosition = new ArrayList<>();
     }
 
+    // oof this whole paintComponent block is a mess
     public void paintComponent(Graphics g) {
         int[] x = {80,105,120,105,80,65};
         int[] y = {71,71,95,119,119,95};
