@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.table.TableColumn;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,7 +27,8 @@ public class highscorePage extends JPanel {
         highscoreTitle.setFont(new Font("Arial", Font.BOLD, 35));
         highscoreTop.add(highscoreTitle, BorderLayout.PAGE_END);
 
-        back = new JButton("back");
+        back = new JButton("back to start");
+        back.setFont(new Font("Arial", Font.BOLD, 15));
         back.setForeground(Color.black);
         back.setBackground(Color.white);
         highscoreTop.add(back, BorderLayout.LINE_START);
@@ -48,6 +50,26 @@ public class highscorePage extends JPanel {
         } catch (IOException ex) {
             System.out.println("rip");
         }
+
+        JPanel scoreTable = new JPanel();
+        scoreTable.setOpaque(false);
+        add(scoreTable, BorderLayout.CENTER);
+
+        String[] columnNames = {"Nickname", "Score"};
+        Object[][] data = new Object[namesWithScores.size()][2];
+        for (int i = 0; i < namesWithScores.size(); i++) {
+            data[i][0] = namesWithScores.get(i)[0];
+            data[i][1] = namesWithScores.get(i)[1];
+        }
+
+        JTable table = new JTable(data, columnNames);
+        table.setFont(new Font("Arial", Font.PLAIN, 15));
+        TableColumn column = null;
+        for (int i = 0; i < 2; i++) {
+            column = table.getColumnModel().getColumn(i);
+            column.setPreferredWidth(150);
+        }
+        scoreTable.add(table, BorderLayout.CENTER);
 
         setOpaque(true);
     }
