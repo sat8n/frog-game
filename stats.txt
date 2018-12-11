@@ -1,2 +1,6 @@
 Player 1
 0
+actual frog
+90
+lazy ass
+5
