@@ -9,7 +9,7 @@ public class runGame extends JFrame {
     gameStats stats;
 
     public runGame() {
-        setTitle("Frogger 1705063");
+        setTitle("Frogger");
         setBackground(new Color(215,234,255));
 
         // JPanel for the start screen
