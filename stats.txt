@@ -4,3 +4,5 @@ actual frog
 90
 test
 5
+satan
+20
